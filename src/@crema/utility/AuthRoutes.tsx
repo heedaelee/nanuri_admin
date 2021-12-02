@@ -34,6 +34,12 @@ const AuthRoutes: React.FC<AuthRoutesProps> = ({children}) => {
     ({settings}) => settings,
   );
   const currentRoute = matchRoutes(routes, pathname)[0].route;
+
+  console.log('====================================');
+  console.log(currentRoute.auth);
+  console.log(user);
+  console.log('====================================');
+
   let isPermitted = checkPermission(currentRoute.auth, user ? user.role : null);
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+import {FETCH_SUCCESS} from './../../types/actions/Common.action';
 import jwtAxios from '../../@crema/services/auth/jwt-auth/jwt-api';
 import {fetchError, fetchStart, fetchSuccess} from './Common';
 import {AuthType} from '../../shared/constants/AppEnums';
@@ -10,7 +11,11 @@ import {
   SIGNOUT_AUTH_SUCCESS,
   UPDATE_AUTH_USER,
 } from '../../types/actions/Auth.actions';
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+// import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import {
+  auth,
+  signInWithEmailAndPassword,
+} from '@crema/services/auth/firebase/firebase';
 
 export const onJwtUserSignUp = (body: {
   email: string;
@@ -36,7 +41,7 @@ export const onJwtSignIn = (body: {email: string; password: string}) => {
     dispatch(fetchStart());
 
     try {
-      const auth = getAuth();
+      // const auth = getAuth();
       // const res = await jwtAxios.post('auth', body);
       signInWithEmailAndPassword(auth, body.email, body.password)
         .then((userCredential) => {
@@ -68,6 +73,8 @@ export const loadJWTUser = async (dispatch: Dispatch<AppActions>) => {
     const res = await jwtAxios.get('/auth');
     dispatch(fetchSuccess());
     console.log('res.data', res.data);
+    console.log('loadJWTUser호출');
+
     dispatch({
       type: UPDATE_AUTH_USER,
       payload: getUserObject(res.data),
@@ -98,6 +105,23 @@ const getUserObject = (authUser: any): AuthUser => {
 export const onJWTAuthSignout = () => {
   return (dispatch: Dispatch<AppActions>) => {
     dispatch(fetchSuccess());
+
+    try {
+      auth
+        .signOut()
+        .then((data) => {
+          dispatch(fetchSuccess());
+          dispatch({type: UPDATE_AUTH_USER, payload: null});
+        })
+        .catch((err) => {
+          console.log('error!!!!', err.response.error);
+          dispatch(fetchError(err.response.error));
+        });
+    } catch (err) {
+      console.log('error!!!!', err.response.error);
+      dispatch(fetchError(err.response.error));
+    }
+
     setTimeout(() => {
       dispatch({type: SIGNOUT_AUTH_SUCCESS});
       dispatch(fetchSuccess());

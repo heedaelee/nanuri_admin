@@ -16,6 +16,8 @@ export const useAuthToken = (): [boolean, AuthUser | null] => {
 
   useEffect(() => {
     const validateAuth = async () => {
+      console.log('validateAuth호출');
+      
       dispatch(fetchStart());
       const token = localStorage.getItem('token');
       if (!token) {
@@ -47,6 +49,9 @@ export const useAuthToken = (): [boolean, AuthUser | null] => {
     const firebaseCheck = () =>
       new Promise<void>((resolve) => {
         firebaseAuth.onAuthStateChanged((authUser: any) => {
+          console.log(`firebaseCheck콜 authuser : `);
+          console.log(authUser);
+          
           if (authUser) {
             dispatch({
               type: UPDATE_AUTH_USER,

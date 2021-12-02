@@ -53,6 +53,7 @@ export const onForgetPasswordFirebaseUser = (email) => {
 };
 
 export const onGetFirebaseSignInUser = () => {
+  console.log(onGetFirebaseSignInUser호출);
   return (dispatch) => {
     dispatch({type: FETCH_START});
     try {
@@ -86,6 +87,8 @@ const getUserObject = (authUser) => {
   };
 };
 export const onSignInFirebaseUser = (email, password) => {
+  console.log(`redux/actions/FirebaseAuth.js / onSignInFirebaseUser 호출`);
+  console.log(`값 : ${email}  ${password}`);
   return (dispatch) => {
     try {
       dispatch({type: FETCH_START});

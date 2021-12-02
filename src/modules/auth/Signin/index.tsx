@@ -1,6 +1,5 @@
 import React from 'react';
 import SigninJwtAuth from './SigninJwtAuth';
-import SigninFirebase from './SigninFirebase';
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
@@ -52,7 +51,7 @@ const Signin: React.FC<{}> = () => {
       <Box mb={{xs: 6, md: 8, xl: 18}} textAlign='center'>
         <img
           className={classes.imgRoot}
-          src='/assets/images/logo-white-with-name.png'
+          src='/assets/images/logo-white-with-name2.png'
           alt='crema-logo'
         />
       </Box>
@@ -73,8 +72,8 @@ const Signin: React.FC<{}> = () => {
               <IntlMessages id='common.login' />
             </Box>
           </Box>
-          {/* <SigninJwtAuth /> */}
-          <SigninFirebase />
+          <SigninJwtAuth />
+          {/* <SigninFirebase /> */}
         </Card>
       </Box>
     </Box>
