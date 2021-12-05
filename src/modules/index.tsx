@@ -7,7 +7,9 @@ import {errorPagesConfigs} from './errorPages';
 import {authRouteConfig} from './auth';
 import {initialUrl} from '../shared/constants/AppConst';
 
+import {dashboardsConfigs} from './dashborad';
 const routeConfigs = [
+  ...dashboardsConfigs,
   ...samplePagesConfig,
   ...errorPagesConfigs,
   ...authRouteConfig,

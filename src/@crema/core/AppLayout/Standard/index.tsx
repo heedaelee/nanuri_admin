@@ -13,6 +13,7 @@ import AppContextPropsType from '../../../../types/AppContextPropsType';
 
 interface StandardLayoutProps {}
 
+//이게 가장 시작하는 일반적 컴포넌트, 여기서 시작
 const StandardLayout: React.FC<StandardLayoutProps> = () => {
   const {footer, themeStyle, layoutType, footerType} = useContext<
     AppContextPropsType

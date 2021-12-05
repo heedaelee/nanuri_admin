@@ -42,7 +42,8 @@ const CremaLayout: React.FC<CremaLayoutProps> = () => {
   const {navStyle} = useContext<AppContextPropsType>(AppContext);
   const {user} = useSelector<AppState, AppState['auth']>(({auth}) => auth);
   const AppLayout = Layouts[navStyle];
-
+  console.log(`appLayOut : ${navStyle}`);
+  
   const classes = useStyle();
   return (
     <>

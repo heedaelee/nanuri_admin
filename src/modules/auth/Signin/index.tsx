@@ -56,7 +56,7 @@ const Signin: React.FC<{}> = () => {
         />
       </Box>
 
-      <Box
+      <Box 
         display='flex'
         flexDirection='column'
         justifyContent='center'
@@ -72,6 +72,7 @@ const Signin: React.FC<{}> = () => {
               <IntlMessages id='common.login' />
             </Box>
           </Box>
+          {/* 12월달에 담 */}
           <SigninJwtAuth />
           {/* <SigninFirebase /> */}
         </Card>

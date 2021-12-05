@@ -14,6 +14,14 @@ export interface NavItemProps {
 
 const routesConfig: NavItemProps[] = [
   {
+    id: 'analytics',
+    title: 'Analytics',
+    messageId: 'sidebar.app.dashboard.analytics',
+    type: 'item',
+    icon: 'dashboard',
+    url: '/dashboards/analytics',
+  },
+  {
     id: 'sample',
     title: 'Sample',
     messageId: 'sidebar.sample',
