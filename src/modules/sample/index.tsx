@@ -5,7 +5,7 @@ export const samplePagesConfig = [
     auth: ['user'],
     routes: [
       {
-        path: '/sample/page-1',
+        path: '/user/userList',
         component: React.lazy(() => import('./Pages/PageOne')),
       },
     ],
@@ -14,7 +14,7 @@ export const samplePagesConfig = [
     auth: ['user'],
     routes: [
       {
-        path: '/sample/page-2',
+        path: '/user/userAdd',
         component: React.lazy(() => import('./Pages/PageTwo')),
       },
     ],

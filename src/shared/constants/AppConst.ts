@@ -15,4 +15,5 @@ export const defaultUser: AuthUser = {
   authType: AuthType.AUTH0,
   photoURL: '/assets/images/avatar/A11.jpg',
 };
-export const initialUrl = '/sample/page-1'; // this url will open after login
+//여기가 시작분
+export const initialUrl = '/dashboard'; // this url will open after login
