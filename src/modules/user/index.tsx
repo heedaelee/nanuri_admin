@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const samplePagesConfig = [
+export const userPagesConfig = [
   {
     auth: ['user'],
     routes: [

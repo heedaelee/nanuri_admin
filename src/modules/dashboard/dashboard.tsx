@@ -1,20 +1,43 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Box from '@material-ui/core/Box';
 import AppAnimate from '../../@crema/core/AppAnimate';
+import {GridContainer} from '@crema';
+import {Grid} from '@material-ui/core';
+import {useDispatch, useSelector} from 'react-redux';
+import {onGetCrmData} from 'redux/actions/Dashboard';
 
-const dashboard = () => {
+const Dashboard = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(onGetCrmData());
+  }, [dispatch]);
+
+  const crmData = useSelector(({dashboard}: any) => {
+
+    console.log('test : ', dashboard);
+    return dashboard.crmData;
+  });
+
   return (
-    <AppAnimate animation='transition.slideUpIn' delay={200}>
-      <Box>
-        <Box component='h4' mb={3} fontSize={20}>
-          Page 삼
-        </Box>
-        <Box component='p' fontSize={16}>
-          여기부터시작ㅌ
-        </Box>
-      </Box>
-    </AppAnimate>
+    <>
+      {crmData ? (
+        <AppAnimate animation='transition.slideUpIn' delay={200}>
+          <Box pt={{xl: 4}} clone>
+            <GridContainer>
+              <Grid item xs={12} md={7}>
+                {/* <QuickStats quickStatsData={crmData.quickStatsData} /> */}
+              </Grid>
+
+              <Grid item xs={12} md={5}>
+                {/* <TotalRevenue revenueData={crmData.revenueData} /> */}
+              </Grid>
+            </GridContainer>
+          </Box>
+        </AppAnimate>
+      ) : null}
+    </>
   );
 };
 
-export default dashboard;
+export default Dashboard;
