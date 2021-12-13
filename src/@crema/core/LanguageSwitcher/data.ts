@@ -7,6 +7,12 @@ export interface LanguageProps {
 
 const languageData: LanguageProps[] = [
   {
+    languageId: 'korean',
+    locale: 'ko',
+    name: 'Korean',
+    icon: 'kr',
+  },
+  {
     languageId: 'english',
     locale: 'en',
     name: 'English',

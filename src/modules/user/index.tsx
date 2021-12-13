@@ -6,17 +6,17 @@ export const userPagesConfig = [
     routes: [
       {
         path: '/user/userList',
-        component: React.lazy(() => import('./Pages/PageOne')),
+        component: React.lazy(() => import('./Pages/UserList')),
       },
     ],
   },
-  {
-    auth: ['user'],
-    routes: [
-      {
-        path: '/user/userAdd',
-        component: React.lazy(() => import('./Pages/PageTwo')),
-      },
-    ],
-  },
+  // {
+  //   auth: ['user'],
+  //   routes: [
+  //     {
+  //       path: '/user/userAdd',
+  //       component: React.lazy(() => import('./Pages/PageTwo')),
+  //     },
+  //   ],
+  // },
 ];

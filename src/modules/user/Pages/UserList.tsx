@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import AppAnimate from '../../../@crema/core/AppAnimate';
 
-const PageOne = () => {
+const UserList = () => {
   return (
     <AppAnimate animation='transition.slideUpIn' delay={200}>
       <Box>
@@ -17,4 +17,4 @@ const PageOne = () => {
   );
 };
 
-export default PageOne;
+export default UserList;

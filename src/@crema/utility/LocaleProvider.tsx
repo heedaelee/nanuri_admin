@@ -13,7 +13,7 @@ const LocaleProvider = (props: any) => {
   return (
     <IntlProvider
       locale={currentAppLocale.locale}
-      defaultLocale='fr'
+      defaultLocale='kr'
       messages={currentAppLocale.messages}>
       <IntlGlobalProvider>{props.children}</IntlGlobalProvider>
     </IntlProvider>

@@ -14,6 +14,7 @@ import {
   // GET_WIDGETS_DATA,
 } from '../../shared/constants/ActionTypes';
 import IntlMessages from '../../@crema/utility/IntlMessages';
+import crmData from '../../@crema/services/db/dashboard/crm';
 
 // export const onGetAnalyticsData = () => {
 //   return (dispatch) => {
@@ -105,23 +106,31 @@ export const onGetCrmData = () => {
   console.log('====================================');
   return (dispatch) => {
     dispatch({type: FETCH_START});
-    Api.get('/dashboard/crm')
-      .then((data) => {
-        console.log('data : ');
-        console.log(data);
-        if (data.status === 200) {
-          dispatch({type: FETCH_SUCCESS});
-          dispatch({type: GET_CRM_DATA, payload: data.data});
-        } else {
-          dispatch({
-            type: FETCH_ERROR,
-            payload: <IntlMessages id='message.somethingWentWrong' />,
-          });
-        }
-      })
-      .catch((error) => {
-        dispatch({type: FETCH_ERROR, payload: error.message});
-      });
+    dispatch({type: FETCH_SUCCESS});
+    console.log('crmData : ');
+    console.log(crmData);
+    dispatch({type: GET_CRM_DATA, payload: crmData});
+
+    //일단 api는 나중에 쓰는걸로.
+    // mock이 안되서 걍 dummyData 방식으로
+    // dispatch({type: FETCH_START});
+    // Api.get('/dashboard/crm')
+    //   .then((data) => {
+    //     console.log('data : ');
+    //     console.log(data);
+    //     if (data.status === 200) {
+    //       dispatch({type: FETCH_SUCCESS});
+    //       dispatch({type: GET_CRM_DATA, payload: data.data});
+    //     } else {
+    //       dispatch({
+    //         type: FETCH_ERROR,
+    //         payload: <IntlMessages id='message.somethingWentWrong' />,
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     dispatch({type: FETCH_ERROR, payload: error.message});
+    //   });
   };
 };
 

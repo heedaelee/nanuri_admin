@@ -25,24 +25,32 @@ const routesConfig: NavItemProps[] = [
     id: 'user',
     title: 'User',
     messageId: 'sidebar.user',
-    type: 'collapse',
+    type: 'item',
     icon: 'dashboard',
-    children: [
-      {
-        id: 'userList',
-        title: 'UserList',
-        messageId: 'sidebar.user.userList',
-        type: 'item',
-        url: '/user/userList',
-      },
-      {
-        id: 'userAdd',
-        title: 'UserAdd',
-        messageId: 'sidebar.user.userAdd',
-        type: 'item',
-        url: '/user/userAdd',
-      },
-    ],
+    url: '/user/userList',
   },
+  // {
+  //   id: 'user',
+  //   title: 'User',
+  //   messageId: 'sidebar.user',
+  //   type: 'collapse',
+  //   icon: 'dashboard',
+  //   children: [
+  //     {
+  //       id: 'userList',
+  //       title: 'UserList',
+  //       messageId: 'sidebar.user.userList',
+  //       type: 'item',
+  //       url: '/user/userList',
+  //     },
+  //     {
+  //       id: 'userAdd',
+  //       title: 'UserAdd',
+  //       messageId: 'sidebar.user.userAdd',
+  //       type: 'item',
+  //       url: '/user/userAdd',
+  //     },
+  //   ],
+  // },
 ];
 export default routesConfig;

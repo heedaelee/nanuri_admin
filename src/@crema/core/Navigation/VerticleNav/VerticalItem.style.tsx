@@ -29,7 +29,9 @@ const useStyles = makeStyles((theme: CremaTheme) => {
         backgroundColor: theme.palette.primary.main,
         pointerEvents: 'none',
         transition: 'border-radius .15s cubic-bezier(0.4,0.0,0.2,1)',
+        
         '& .nav-item-text': {
+          // fontSize: 1,
           color: theme.palette.common.white + '!important',
           fontWeight: Fonts.MEDIUM,
         },
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme: CremaTheme) => {
         },
       },
 
+      //사이드 바 메뉴 텍스트 호버
       '&:hover, &:focus': {
         '& .nav-item-text': {
           color: (props: {level: number; themeMode: ThemeMode}) =>
@@ -63,7 +66,10 @@ const useStyles = makeStyles((theme: CremaTheme) => {
       '& .nav-item-icon': {
         color: theme.palette.sidebar.textColor,
       },
+
+      //일반 사이드 바 메뉴 텍스트
       '& .nav-item-text': {
+        // fontSize: 1,
         color: theme.palette.sidebar.textColor,
         fontWeight: Fonts.MEDIUM,
       },

@@ -6,7 +6,7 @@ export const dashboardPagesConfig = [
     routes: [
       {
         path: '/dashboard',
-        component: React.lazy(() => import('./dashboard')),
+        component: React.lazy(() => import('./Dashboard')),
       },
     ],
   },

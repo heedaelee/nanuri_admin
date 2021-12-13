@@ -101,7 +101,7 @@ const UserInfo: React.FC<{}> = () => {
             alignItems='center'
             justifyContent='space-between'>
             <Box mb={0} className={clsx(classes.userName)}>
-              {user && (user.displayName ? user.displayName : 'Admin User ')}
+              {user && (user.displayName ? user.displayName : '최대표')}
             </Box>
             <Box
               ml={3}
@@ -121,7 +121,7 @@ const UserInfo: React.FC<{}> = () => {
               </Menu>
             </Box>
           </Box>
-          <Box className={classes.designation}>System Manager</Box>
+          <Box className={classes.designation}>시니어 운영자</Box>
         </Box>
       </Box>
     </Box>
