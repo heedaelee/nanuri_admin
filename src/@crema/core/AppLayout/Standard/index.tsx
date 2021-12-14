@@ -36,6 +36,7 @@ const StandardLayout: React.FC<StandardLayoutProps> = () => {
         <Hidden mdDown>
           <Box className={classes.mainContainer}>
             <AppHeader />
+            {/* NOTE: ContentView가 navigator 메뉴에서 to= 에 힐당된 url를 받아서 page를 rendering 해주는 역할임. 핵심 */}
             <ContentView />
             <AppFixedFooter />
           </Box>

@@ -13,6 +13,7 @@ import AppContext from '../../../utility/AppContext';
 import {AppState} from '../../../../redux/store';
 import AppContextPropsType from '../../../../types/AppContextPropsType';
 
+//NOTE: 지금 여기 쓰고 있음.
 interface AppSidebarProps {
   position?: 'left' | 'bottom' | 'right' | 'top';
   variant?: string;
