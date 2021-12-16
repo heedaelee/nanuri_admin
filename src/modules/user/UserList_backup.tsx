@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import AppAnimate from '../../../@crema/core/AppAnimate';
+import AppAnimate from '../../@crema/core/AppAnimate';
 
 const UserList = () => {
   return (
