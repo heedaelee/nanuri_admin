@@ -1,25 +1,32 @@
+import {AppActions} from './../../types/index';
+import {Dispatch} from 'redux';
 import {
-  CREATE_NEW_CONTACT,
-  DELETE_CONTACT,
   FETCH_ERROR,
   FETCH_START,
   FETCH_SUCCESS,
-  GET_CONTACT_FOLDER_LIST,
-  GET_CONTACT_LABEL_LIST,
-  GET_CONTACT_LIST,
   SHOW_MESSAGE,
+} from '../../types/actions/Common.action';
+import {
+  UserListActionTypes,
+  CREATE_NEW_CONTACT,
+  DELETE_CONTACT,
+  GET_CONTACT_FOLDER_LIST,
+  GET_CONTACT_LIST,
   TOGGLE_CONTACT_DRAWER,
   UPDATE_CONTACT_DETAIL,
-  UPDATE_CONTACT_LABEL,
   UPDATE_CONTACT_STARRED_STATUS,
-} from '../../shared/constants/ActionTypes';
+} from '../../types/actions/UserList.action';
 import Api from '../../@crema/services/ApiConfig';
 import {appIntl} from '../../@crema/utility/Utils';
 
-export const onGetContactList = (type, name, currentPage) => {
+export const onGetContactList = (
+  type: string,
+  name: string,
+  currentPage: number,
+) => {
   const {messages} = appIntl();
   const page = currentPage ? currentPage : 0;
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
     Api.get('/api/contactApp/contact/List', {
       params: {
@@ -45,31 +52,9 @@ export const onGetContactList = (type, name, currentPage) => {
   };
 };
 
-export const onGetLabelList = () => {
-  const {messages} = appIntl();
-  return (dispatch) => {
-    dispatch({type: FETCH_START});
-    Api.get('/api/contactApp/labels/list')
-      .then((data) => {
-        if (data.status === 200) {
-          dispatch({type: FETCH_SUCCESS});
-          dispatch({type: GET_CONTACT_LABEL_LIST, payload: data.data});
-        } else {
-          dispatch({
-            type: FETCH_ERROR,
-            payload: messages['message.somethingWentWrong'],
-          });
-        }
-      })
-      .catch((error) => {
-        dispatch({type: FETCH_ERROR, payload: error.message});
-      });
-  };
-};
-
 export const onGetFolderList = () => {
   const {messages} = appIntl();
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
     Api.get('/api/contactApp/folders/list')
       .then((data) => {
@@ -90,43 +75,18 @@ export const onGetFolderList = () => {
 };
 
 export const onToggleContactDrawer = () => {
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: TOGGLE_CONTACT_DRAWER});
   };
 };
 
-export const onUpdateContactLabel = (contactIds, type, labelName) => {
+export const onUpdateStarredStatus = (
+  contactIds: [],
+  status: number,
+  folderName: string,
+) => {
   const {messages} = appIntl();
-  return (dispatch) => {
-    dispatch({type: FETCH_START});
-    Api.put('/api/contactApp/update/label', {contactIds, type})
-      .then((data) => {
-        if (data.status === 200) {
-          dispatch({type: FETCH_SUCCESS});
-          dispatch({
-            type: UPDATE_CONTACT_LABEL,
-            payload: {data: data.data, labelName: labelName, labelType: type},
-          });
-          dispatch({
-            type: SHOW_MESSAGE,
-            payload: messages['message.labelUpdated'],
-          });
-        } else {
-          dispatch({
-            type: FETCH_ERROR,
-            payload: messages['message.somethingWentWrong'],
-          });
-        }
-      })
-      .catch((error) => {
-        dispatch({type: FETCH_ERROR, payload: error.message});
-      });
-  };
-};
-
-export const onUpdateStarredStatus = (contactIds, status, folderName) => {
-  const {messages} = appIntl();
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
     Api.put('/api/contactApp/update/starred', {contactIds, status})
       .then((data) => {
@@ -138,7 +98,7 @@ export const onUpdateStarredStatus = (contactIds, status, folderName) => {
           });
           dispatch({
             type: SHOW_MESSAGE,
-            payload: messages['message.starredStatus'],
+            message: messages['message.starredStatus'],
           });
         } else {
           dispatch({
@@ -153,7 +113,13 @@ export const onUpdateStarredStatus = (contactIds, status, folderName) => {
   };
 };
 
-export const onDeleteContacts = (type, name, contactIds, page) => {
+export const onDeleteContacts = (
+  type: string,
+  name: string,
+  contactIds: [],
+  page: number,
+) => {
+  =================================여기부터
   const {messages} = appIntl();
   return (dispatch) => {
     dispatch({type: FETCH_START});

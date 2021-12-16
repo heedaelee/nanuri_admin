@@ -1,12 +1,12 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import IntlMessages from '../../../../@crema/utility/IntlMessages';
+import IntlMessages from '../../../@crema/utility/IntlMessages';
 import BusinessIcon from '@material-ui/icons/Business';
 import HomeIcon from '@material-ui/icons/Home';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
-import {Fonts} from '../../../../shared/constants/AppEnums';
+import {Fonts} from '../../../shared/constants/AppEnums';
 
 const OtherDetails = (props) => {
   const {contact} = props;

@@ -5,13 +5,13 @@ export const userPagesConfig = [
   {
     auth: ['user'],
     routes: [
-      {
-        path: '/user/userList',
-        component: React.lazy(() => import('./UserList2')),
-      },
+      // {
+      //   path: '/user/userList',
+      //   component: React.lazy(() => import('./UserList_backup')),
+      // },
       {
         path: ['/user/userList/folder/:name', '/user/userList/label/:name'],
-        component: React.lazy(() => import('./UserList2')),
+        component: React.lazy(() => import('./UserList')),
       },
       {
         path: '/user/userList',

@@ -4,7 +4,7 @@ import {onUpdateSelectedContact} from '../../../../redux/actions/ContactApp';
 import Avatar from '@material-ui/core/Avatar';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
-import {Scrollbar} from '../../../../@crema';
+import {Scrollbar} from '../../../@crema';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import ContactActions from './ContactActions';
@@ -14,7 +14,7 @@ import SocialMedia from './SocialMedia';
 import Notes from './Notes';
 import {makeStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
-import {Fonts} from '../../../../shared/constants/AppEnums';
+import {Fonts} from '../../../shared/constants/AppEnums';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='down' ref={ref} {...props} />;

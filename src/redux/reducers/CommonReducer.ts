@@ -47,7 +47,7 @@ const CommonReducer = (
       return {
         ...state,
         loading: false,
-        error: action.error,
+        error: action.payload,
         message: '',
         updatingContent: false,
       };

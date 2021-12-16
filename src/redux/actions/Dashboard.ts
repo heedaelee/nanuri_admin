@@ -1,19 +1,16 @@
-import React from 'react';
-import Api from '../../@crema/services/ApiConfig';
-import {
-  FETCH_ERROR,
-  FETCH_START,
-  FETCH_SUCCESS,
-  GET_CRM_DATA,
-} from '../../shared/constants/ActionTypes';
-import IntlMessages from '../../@crema/utility/IntlMessages';
+import {DashboardActionTypes} from './../../types/actions/Dashboard.action';
+import {AppActions} from './../../types/index';
+import {FETCH_START, FETCH_SUCCESS} from 'types/actions/Common.action';
+import {GET_CRM_DATA} from 'types/actions/Dashboard.action';
+
 import crmData from '../../@crema/services/db/dashboard/crm';
+import {Dispatch} from 'redux';
 
 export const onGetCrmData = () => {
   console.log('====================================');
   console.log('onGetCrm호출');
   console.log('====================================');
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
     dispatch({type: FETCH_SUCCESS});
     console.log('crmData : ');

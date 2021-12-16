@@ -16,7 +16,7 @@ export interface FetchSuccessAction {
 
 export interface FetchErrorAction {
   type: typeof FETCH_ERROR;
-  error: string;
+  payload: string;
 }
 
 export interface ShowMessageAction {
