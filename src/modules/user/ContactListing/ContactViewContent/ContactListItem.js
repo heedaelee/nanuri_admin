@@ -8,10 +8,10 @@ import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import ItemMenu from './ItemMenu';
-import AppsStarredIcon from '../../../../../@crema/core/AppsStarredIcon';
+import AppsStarredIcon from '../../../../@crema/core/AppsStarredIcon';
 import {makeStyles} from '@material-ui/core/styles';
 import {blue, grey} from '@material-ui/core/colors';
-import {Fonts} from '../../../../../shared/constants/AppEnums';
+import {Fonts} from '../../../../shared/constants/AppEnums';
 
 const ContactListItem = ({
   contact,

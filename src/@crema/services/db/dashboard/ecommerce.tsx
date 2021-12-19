@@ -1,4 +1,6 @@
-const ecommerceDat = {
+import {Ecommerce} from '../../../../types/models/dashboards/Ecommerce';
+
+const ecommerceDat: Ecommerce = {
   salesState: [
     {
       id: 1,

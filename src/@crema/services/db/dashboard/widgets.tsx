@@ -7,8 +7,9 @@ import {
   purple,
   red,
 } from '@material-ui/core/colors';
+import {Widgets} from '../../../../types/models/dashboards/Widgets';
 
-const widgetsData = {
+const widgetsData: Widgets = {
   recentActivity: [
     {
       id: 10001,
@@ -235,28 +236,28 @@ const widgetsData = {
       name: 'New York',
       desc:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-      image: 'https://via.placeholder.com/450x575',
+      image: '/assets/images/widgets-companyInfo/building1.png',
     },
     {
       id: 3332,
       name: 'Sydney',
       desc:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      image: 'https://via.placeholder.com/450x575',
+      image: '/assets/images/widgets-companyInfo/building2.png',
     },
     {
       id: 4332,
       name: 'New Delhi',
       desc:
         'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.',
-      image: 'https://via.placeholder.com/450x575',
+      image: '/assets/images/widgets-companyInfo/building3.png',
     },
     {
       id: 5432,
       name: 'Singapore',
       desc:
         'It has survived not only five centuries, but also the leap into remaining essentially unchanged.',
-      image: 'https://via.placeholder.com/450x575',
+      image: '/assets/images/widgets-companyInfo/building4.png',
     },
   ],
 };

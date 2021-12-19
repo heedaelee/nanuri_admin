@@ -1,6 +1,7 @@
 import {getCustomDateTime} from '../../../utility/Utils';
+import {Academy} from '../../../../types/models/dashboards/Academy';
 
-const academyData = {
+const academyData: Academy = {
   academicStats: [
     {
       id: 1,
@@ -48,15 +49,15 @@ const academyData = {
       xp: 45,
       images: [
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/design.png',
           title: 'image 1',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/design.png',
           title: 'image 2',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/design.png',
           title: 'image 3',
         },
       ],
@@ -69,15 +70,15 @@ const academyData = {
       xp: 45,
       images: [
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/development.png',
           title: 'image 1',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/development.png',
           title: 'image 2',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/development.png',
           title: 'image 3',
         },
       ],
@@ -90,15 +91,15 @@ const academyData = {
       xp: 45,
       images: [
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/marketing.png',
           title: 'image 1',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/marketing.png',
           title: 'image 2',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/marketing.png',
           title: 'image 3',
         },
       ],
@@ -111,15 +112,15 @@ const academyData = {
       xp: 45,
       images: [
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/it.png',
           title: 'image 1',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/it.png',
           title: 'image 2',
         },
         {
-          image: 'https://via.placeholder.com/260x160',
+          image: '/assets/images/dashboard/academy/it.png',
           title: 'image 3',
         },
       ],
@@ -418,28 +419,28 @@ const academyData = {
   relatedCourses: [
     {
       id: 1,
-      image: 'https://via.placeholder.com/300x150',
+      image: '/assets/images/dashboard/academy/relatedCourse1.png',
       title: 'How to attract client 1st time',
       author: 'Patya pindo',
       views: '1.5k',
     },
     {
       id: 2,
-      image: 'https://via.placeholder.com/300x150',
+      image: '/assets/images/dashboard/academy/relatedCourse2.png',
       title: 'How to secure good marks',
       author: 'Patya pindo',
       views: '1.8k',
     },
     {
       id: 3,
-      image: 'https://via.placeholder.com/300x150',
+      image: '/assets/images/dashboard/academy/relatedCourse1.png',
       title: 'How to attract client 1st time',
       author: 'Patya pindo',
       views: '1.5k',
     },
     {
       id: 4,
-      image: 'https://via.placeholder.com/300x150',
+      image: '/assets/images/dashboard/academy/relatedCourse2.png',
       title: 'How to secure good marks',
       author: 'Patya pindo',
       views: '1.8k',

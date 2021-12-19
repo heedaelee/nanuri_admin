@@ -1,5 +1,7 @@
-const healthCareData = {
-  salesState: [
+import {HealthCare} from '../../../../types/models/dashboards/HealthCare';
+
+const healthCareData: HealthCare = {
+  drState: [
     {
       id: 1,
       category: 'Dentist',
@@ -290,18 +292,18 @@ const healthCareData = {
     },
   ],
   hospitalActivity: [
-    {name: 'Jan', Consultations: 150, Patients: 270},
-    {name: 'Feb', Consultations: 250, Patients: 200},
-    {name: 'Mar', Consultations: 180, Patients: 280},
-    {name: 'Apr', Consultations: 278, Patients: 250},
-    {name: 'May', Consultations: 250, Patients: 300},
-    {name: 'Jun', Consultations: 350, Patients: 250},
-    {name: 'Jul', Consultations: 280, Patients: 300},
-    {name: 'Aug', Consultations: 340, Patients: 240},
-    {name: 'Sep', Consultations: 280, Patients: 300},
-    {name: 'Oct', Consultations: 400, Patients: 270},
-    {name: 'Nov', Consultations: 250, Patients: 240},
-    {name: 'Dec', Consultations: 400, Patients: 270},
+    {name: 'Jan', consultations: 150, patients: 270},
+    {name: 'Feb', consultations: 250, patients: 200},
+    {name: 'Mar', consultations: 180, patients: 280},
+    {name: 'Apr', consultations: 278, patients: 250},
+    {name: 'May', consultations: 250, patients: 300},
+    {name: 'Jun', consultations: 350, patients: 250},
+    {name: 'Jul', consultations: 280, patients: 300},
+    {name: 'Aug', consultations: 340, patients: 240},
+    {name: 'Sep', consultations: 280, patients: 300},
+    {name: 'Oct', consultations: 400, patients: 270},
+    {name: 'Nov', consultations: 250, patients: 240},
+    {name: 'Dec', consultations: 400, patients: 270},
   ],
   bloodCard: [
     {

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {onUpdateSelectedContact} from '../../../../redux/actions/ContactApp';
+import {onUpdateSelectedContact} from '../../../redux/actions/UserList';
 import Avatar from '@material-ui/core/Avatar';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';

@@ -98,7 +98,7 @@ export const onUpdateStarredStatus = (
           });
           dispatch({
             type: SHOW_MESSAGE,
-            message: messages['message.starredStatus'],
+            payload: messages['message.starredStatus'],
           });
         } else {
           dispatch({
@@ -119,9 +119,8 @@ export const onDeleteContacts = (
   contactIds: [],
   page: number,
 ) => {
-  =================================여기부터
   const {messages} = appIntl();
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
     Api.post('/api/contactApp/delete/contact', {type, name, contactIds, page})
       .then((data) => {
@@ -145,9 +144,9 @@ export const onDeleteContacts = (
   };
 };
 
-export const onUpdateSelectedContact = (contact) => {
+export const onUpdateSelectedContact = (contact: any) => {
   const {messages} = appIntl();
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
     Api.put('/api/contactApp/contact/', {contact})
       .then((data) => {
@@ -171,9 +170,9 @@ export const onUpdateSelectedContact = (contact) => {
   };
 };
 
-export const onCreateContact = (contact) => {
+export const onCreateContact = (contact: any) => {
   const {messages} = appIntl();
-  return (dispatch) => {
+  return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
     Api.post('/api/contactApp/compose', {contact})
       .then((data) => {

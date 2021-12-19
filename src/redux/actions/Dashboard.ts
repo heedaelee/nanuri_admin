@@ -12,6 +12,8 @@ export const onGetCrmData = () => {
   console.log('====================================');
   return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
+
+    //axios-mock-adapter 프로세스 일단 삭제함
     dispatch({type: FETCH_SUCCESS});
     console.log('crmData : ');
     console.log(crmData);

@@ -3,16 +3,16 @@ import Dialog from '@material-ui/core/Dialog';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {useDispatch} from 'react-redux';
-import {Scrollbar} from '../../../../@crema';
+import {Scrollbar} from '../../../@crema';
 import {
   onCreateContact,
   onUpdateSelectedContact,
-} from '../../../../redux/actions/ContactApp';
+} from '../../../redux/actions/UserList';
 import Slide from '@material-ui/core/Slide';
-import IntlMessages from '../../../../@crema/utility/IntlMessages';
+import IntlMessages from '../../../@crema/utility/IntlMessages';
 import PropTypes from 'prop-types';
 import AddContactForm from './AddContactForm';
-import {Fonts} from '../../../../shared/constants/AppEnums';
+import {Fonts} from '../../../shared/constants/AppEnums';
 import {makeStyles} from '@material-ui/core/styles/index';
 
 const Transition = React.forwardRef(function Transition(props, ref) {

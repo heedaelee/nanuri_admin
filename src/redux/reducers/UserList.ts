@@ -1,13 +1,14 @@
+import { UserListActionTypes } from './../../types/actions/UserList.action';
 import {
   CREATE_NEW_CONTACT,
   DELETE_CONTACT,
-  GET_CONTACT_DETAIL,
+  // GET_CONTACT_DETAIL,
   GET_CONTACT_FOLDER_LIST,
   GET_CONTACT_LIST,
   TOGGLE_CONTACT_DRAWER,
   UPDATE_CONTACT_DETAIL,
   UPDATE_CONTACT_STARRED_STATUS,
-} from '../../shared/constants/ActionTypes';
+} from '../../types/actions/UserList.action';
 
 const initialState = {
   contactList: [],
@@ -17,7 +18,7 @@ const initialState = {
   selectedContact: null,
 };
 
-const contactReducer = (state = initialState, action) => {
+const contactReducer = (state = initialState, action: UserListActionTypes) => {
   switch (action.type) {
     case GET_CONTACT_LIST:
       return {
@@ -38,7 +39,6 @@ const contactReducer = (state = initialState, action) => {
         contactDrawer: !state.contactDrawer,
       };
 
-
     case CREATE_NEW_CONTACT:
       return {
         ...state,
@@ -53,7 +53,6 @@ const contactReducer = (state = initialState, action) => {
         totalContacts: action.payload.total,
       };
     }
-
 
     case UPDATE_CONTACT_STARRED_STATUS: {
       let contactIds = action.payload.data.map((contact) => contact.id);

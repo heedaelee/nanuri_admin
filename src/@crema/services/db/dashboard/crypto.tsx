@@ -1,6 +1,7 @@
 import {blue, orange} from '@material-ui/core/colors';
+import {Crypto} from '../../../../types/models/dashboards/Crypto';
 
-const cryptoData = {
+const cryptoData: Crypto = {
   coinGraphData: {
     bitcoin: {
       yearlyData: [
@@ -298,7 +299,7 @@ const cryptoData = {
       news:
         'Power Ledger’s Jemma Green Is Fighting Climate Change by Helping Trade Neighbors Energy. Binance Coin Spikes Almost 20 Percent as...',
       created: '16 mins',
-      image: 'https://via.placeholder.com/200x100',
+      image: '/assets/images/bitcoin1.png',
       by: 'BTC EHTD USD',
     },
     {
@@ -306,7 +307,7 @@ const cryptoData = {
       news:
         'Binance Coin Spikes Almost 20 Percent as Bitcoin and Crypto Market Take a Break After Red Wave. Bitcoin with other major coins have dropped...',
       created: '45 mins',
-      image: 'https://via.placeholder.com/200x100',
+      image: '/assets/images/bitcoin2.png',
       by: 'BTC EHTD USD',
     },
     {
@@ -314,7 +315,7 @@ const cryptoData = {
       news:
         'Power Ledger’s Jemma Green Is Fighting Climate Change by Helping Trade Neighbors Energy. Binance Coin Spikes Almost 20 Percent as...',
       created: '1 Hrs',
-      image: 'https://via.placeholder.com/200x100',
+      image: '/assets/images/bitcoin3.png',
       by: 'BTC EHTD USD',
     },
   ],
@@ -326,7 +327,7 @@ const cryptoData = {
       marketCap: '129,820,932',
       volume: '25,111,773',
       h: '2.50',
-      image: 'https://via.placeholder.com/200x100',
+      image: '/assets/images/bitcoin.png',
       color: orange[600],
     },
     {
@@ -356,7 +357,7 @@ const cryptoData = {
       marketCap: '21,445,237',
       volume: '32,324,655',
       h: '0.93',
-      image: 'https://via.placeholder.com/200x100',
+      image: '/assets/images/bitcoin.png',
       color: orange[500],
     },
     {
@@ -366,7 +367,7 @@ const cryptoData = {
       marketCap: '124,674,765',
       volume: '94,342,323',
       h: '.30',
-      image: 'https://via.placeholder.com/200x100',
+      image: '/assets/images/bitcoin.png',
       color: blue[600],
     },
   ],

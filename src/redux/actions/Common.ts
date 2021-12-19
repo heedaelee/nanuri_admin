@@ -17,9 +17,9 @@ export const fetchError = (payload: string): CommonActionTypes => ({
   payload,
 });
 
-export const showMessage = (message: string): CommonActionTypes => ({
+export const showMessage = (payload: string): CommonActionTypes => ({
   type: SHOW_MESSAGE,
-  message,
+  payload,
 });
 
 export const onToggleAppDrawer = (): CommonActionTypes => ({

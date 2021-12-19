@@ -21,7 +21,7 @@ export interface FetchErrorAction {
 
 export interface ShowMessageAction {
   type: typeof SHOW_MESSAGE;
-  message: string;
+  payload: string;
 }
 
 export interface ToggleDrawerAction {

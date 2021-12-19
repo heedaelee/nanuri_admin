@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box';
 import LabelIcon from '@material-ui/icons/Label';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
-import {NavLink} from '../../../../@crema';
+import {NavLink} from '../../../@crema';
 import PropTypes from 'prop-types';
 import useStyles from './index.style';
 

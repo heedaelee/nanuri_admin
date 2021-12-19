@@ -8,14 +8,14 @@ import {useDropzone} from 'react-dropzone';
 import {useIntl} from 'react-intl';
 import {grey} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/core/styles';
-import Scrollbar from '../../../../@crema/core/Scrollbar';
+import Scrollbar from '../../../@crema/core/Scrollbar';
 import PropTypes from 'prop-types';
-import IntlMessages from '../../../../@crema/utility/IntlMessages';
+import IntlMessages from '../../../@crema/utility/IntlMessages';
 import {KeyboardDatePicker} from '@material-ui/pickers';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import {Fonts} from '../../../../shared/constants/AppEnums';
+import {Fonts} from '../../../shared/constants/AppEnums';
 
 const MyTextField = (props) => {
   const [field, meta] = useField(props);
