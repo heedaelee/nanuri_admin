@@ -81,8 +81,8 @@ export const onToggleContactDrawer = () => {
 };
 
 export const onUpdateStarredStatus = (
-  contactIds: [],
-  status: number,
+  contactIds: number[],
+  status: boolean,
   folderName: string,
 ) => {
   const {messages} = appIntl();
@@ -116,7 +116,7 @@ export const onUpdateStarredStatus = (
 export const onDeleteContacts = (
   type: string,
   name: string,
-  contactIds: [],
+  contactIds: number[],
   page: number,
 ) => {
   const {messages} = appIntl();

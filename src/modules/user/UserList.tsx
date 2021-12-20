@@ -16,7 +16,7 @@ const Contact = () => {
   const {messages} = useIntl();
   return (
     <AppsContainer
-      title={messages['contactApp.contact']}
+      title={messages['contactApp.contact'] as string}
       sidebarContent={<SideBarContent />}>
       <ContactListing />
     </AppsContainer>

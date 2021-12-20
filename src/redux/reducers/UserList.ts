@@ -1,8 +1,7 @@
-import { UserListActionTypes } from './../../types/actions/UserList.action';
 import {
+  UserListActionTypes,
   CREATE_NEW_CONTACT,
   DELETE_CONTACT,
-  // GET_CONTACT_DETAIL,
   GET_CONTACT_FOLDER_LIST,
   GET_CONTACT_LIST,
   TOGGLE_CONTACT_DRAWER,
@@ -10,9 +9,17 @@ import {
   UPDATE_CONTACT_STARRED_STATUS,
 } from '../../types/actions/UserList.action';
 
-const initialState = {
+import {UserListObj, FolderObj} from '../../types/models/apps/UserList';
+
+const initialState: {
+  contactList: UserListObj[];
+  totalContacts: number;
+  contactDrawer: false;
+  folderList: FolderObj[];
+  selectedContact: UserListObj | null;
+} = {
   contactList: [],
-  totalContacts: null,
+  totalContacts: 0,
   contactDrawer: false,
   folderList: [],
   selectedContact: null,
@@ -67,7 +74,7 @@ const contactReducer = (state = initialState, action: UserListActionTypes) => {
       });
       const filteredList =
         action.payload.folderName === 'starred'
-          ? updatedList.filter((item) => item.isStarred)
+          ? updatedList.filter((item) => item!.isStarred)
           : updatedList;
       const total =
         action.payload.folderName === 'starred'
@@ -79,12 +86,6 @@ const contactReducer = (state = initialState, action: UserListActionTypes) => {
         totalContacts: total,
       };
     }
-
-    case GET_CONTACT_DETAIL:
-      return {
-        ...state,
-        selectedContact: action.payload,
-      };
 
     case UPDATE_CONTACT_DETAIL:
       return {

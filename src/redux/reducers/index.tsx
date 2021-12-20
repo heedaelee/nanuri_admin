@@ -11,6 +11,7 @@ const reducers = {
   common: CommonReducer,
   dashboard: Dashboard,
   userList: UserListReducer,
+  // contactApp: ContactApp,
 };
 
 export default reducers;
