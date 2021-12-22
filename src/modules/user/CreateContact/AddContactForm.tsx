@@ -1,23 +1,18 @@
-import React, {useEffect} from 'react';
-import {Box, Button, Select} from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
-import {Field, Form, useField} from 'formik';
+import { grey } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import {useSelector} from 'react-redux';
-import {useDropzone} from 'react-dropzone';
-import {useIntl} from 'react-intl';
-import {grey} from '@material-ui/core/colors';
-import {makeStyles} from '@material-ui/core/styles';
+import { KeyboardDatePicker } from '@material-ui/pickers';
+import { Form, useField } from 'formik';
+import React from 'react';
+import { useDropzone } from 'react-dropzone';
+import { useIntl } from 'react-intl';
 import Scrollbar from '../../../@crema/core/Scrollbar';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
-import {KeyboardDatePicker} from '@material-ui/pickers';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import {Fonts} from '../../../shared/constants/AppEnums';
-import {UserListObj} from '../../../types/models/apps/Contact';
-import {CremaTheme} from '../../../types/AppContextPropsType';
-import {AppState} from '../../../redux/store';
+import { Fonts } from '../../../shared/constants/AppEnums';
+import { CremaTheme } from '../../../types/AppContextPropsType';
+import { UserListObj } from '../../../types/models/apps/UserList';
 
 const useStyles = makeStyles((theme: CremaTheme) => ({
   avatar: {
@@ -79,25 +74,12 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
   setFieldValue,
   handleAddContactClose,
 }) => {
-  const {labelList}: {labelList: LabelObj[]} = useSelector<
-    AppState,
-    AppState['userList']
-  >(({userList}) => userList);
-
-  const inputLabel = React.useRef(null);
-
-  const [labelWidth, setLabelWidth] = React.useState(0);
-
   const {getRootProps, getInputProps} = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
       setUserImage(URL.createObjectURL(acceptedFiles[0]));
     },
   });
-
-  useEffect(() => {
-    setLabelWidth(90);
-  }, []);
 
   const {messages} = useIntl();
 
@@ -166,31 +148,6 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
                 value={values.birthday}
                 onChange={(value) => setFieldValue('birthday', value)}
               />
-
-              <FormControl variant='outlined' className={classes.widthFull}>
-                <InputLabel
-                  ref={inputLabel}
-                  id='demo-simple-select-outlined-label'>
-                  <IntlMessages id='common.selectLabel' />
-                </InputLabel>
-                <Field
-                  name='label'
-                  type='select'
-                  as={Select}
-                  labelWidth={labelWidth}
-                  className={classes.myTextField}>
-                  {labelList.map((label: LabelObj) => {
-                    return (
-                      <MenuItem
-                        value={label.id}
-                        key={label.id}
-                        className={classes.pointer}>
-                        {label.name}
-                      </MenuItem>
-                    );
-                  })}
-                </Field>
-              </FormControl>
 
               <MyTextField
                 className={classes.widthFull}

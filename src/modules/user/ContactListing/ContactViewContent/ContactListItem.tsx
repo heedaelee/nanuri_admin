@@ -2,7 +2,6 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
-import LabelIcon from '@material-ui/icons/Label';
 import Box from '@material-ui/core/Box';
 import clsx from 'clsx';
 import ItemMenu from './ItemMenu';
@@ -14,7 +13,6 @@ import {UserListObj} from '../../../../types/models/apps/UserList';
 
 interface ContactListItemProps {
   contact: UserListObj;
-  
   onChangeStarred: (isStarred: boolean, contact: UserListObj) => void;
   onChangeCheckedContacts: (event: any, id: number) => void;
   checkedContacts: number[];
@@ -27,7 +25,6 @@ interface ContactListItemProps {
 
 const ContactListItem: React.FC<ContactListItemProps> = ({
   contact,
-  labelList,
   onChangeCheckedContacts,
   checkedContacts,
   onChangeStarred,
@@ -35,16 +32,7 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
   onViewContactDetail,
   onOpenEditContact,
 }) => {
-  const onGetLabelColor = (labelId: number) => {
-    if (labelId) {
-      return (
-        labelList.length > 0 &&
-        labelList.find(label => label.id === labelId)!.color
-      );
-    }
-  };
-
-  const useStyles = makeStyles(theme => ({
+  const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexDirection: 'row',
@@ -68,15 +56,6 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
     avatar: {
       backgroundColor: blue[500],
     },
-    labelIconRoot: {
-      marginLeft: 12,
-      marginRight: 8,
-      display: 'none',
-      color: `${onGetLabelColor(contact.label)}`,
-      [theme.breakpoints.up('sm')]: {
-        display: 'block',
-      },
-    },
   }));
 
   const classes = useStyles();
@@ -94,10 +73,10 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
         <Box
           mr={{xs: 2, sm: 4}}
           component='span'
-          onClick={event => event.stopPropagation()}>
+          onClick={(event) => event.stopPropagation()}>
           <Checkbox
             checked={checkedContacts.includes(contact.id)}
-            onChange={event => onChangeCheckedContacts(event, contact.id)}
+            onChange={(event) => onChangeCheckedContacts(event, contact.id)}
             color='primary'
           />
         </Box>
@@ -155,16 +134,14 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
           mr={{xl: 4}}
           display='flex'
           alignItems='center'>
-          <Box component='span' onClick={event => event.stopPropagation()}>
+          <Box component='span' onClick={(event) => event.stopPropagation()}>
             <AppsStarredIcon item={contact} onChange={onChangeStarred} />
           </Box>
-
-          <LabelIcon className={classes.labelIconRoot} />
 
           <Box
             component='span'
             ml={2}
-            onClick={event => event.stopPropagation()}>
+            onClick={(event) => event.stopPropagation()}>
             <ItemMenu
               onSelectContactsForDelete={onSelectContactsForDelete}
               contact={contact}

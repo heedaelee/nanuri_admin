@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
 import Scrollbar from '../../../@crema/core/Scrollbar';
 import CreateContact from '../CreateContact';
-import LabelItem from './LabelItem';
 import AppsSideBarFolderItem from '../../../@crema/core/AppsSideBarFolderItem';
 import {makeStyles} from '@material-ui/core/styles';
 import {Fonts} from '../../../shared/constants/AppEnums';
@@ -33,10 +32,6 @@ const useStyles = makeStyles((theme: CremaTheme) => ({
 }));
 
 const SideBarContent: React.FC<{}> = () => {
-  const {labelList} = useSelector<AppState, AppState['userList']>(
-    ({userList}) => userList,
-  );
-
   const {folderList} = useSelector<AppState, AppState['userList']>(
     ({userList}) => userList,
   );
@@ -85,7 +80,7 @@ const SideBarContent: React.FC<{}> = () => {
                   placeholder={<SidebarPlaceholder />}
                 />
               }
-              renderRow={item => (
+              renderRow={(item) => (
                 <AppsSideBarFolderItem
                   key={item.id}
                   item={item}
@@ -98,20 +93,6 @@ const SideBarContent: React.FC<{}> = () => {
           <Box component='h5' mt={{xs: 4, xl: 5}} fontWeight={Fonts.MEDIUM}>
             <IntlMessages id='common.labels' />
           </Box>
-
-          <List component='nav' aria-label='main mailbox folders'>
-            <AppList
-              animation='transition.slideLeftIn'
-              data={labelList}
-              ListEmptyComponent={
-                <ListEmptyResult
-                  loading={true}
-                  placeholder={<SidebarPlaceholder />}
-                />
-              }
-              renderRow={label => <LabelItem key={label.id} label={label} />}
-            />
-          </List>
 
           {isAddContact ? (
             <CreateContact

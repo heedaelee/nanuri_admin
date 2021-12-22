@@ -21,10 +21,3 @@ export interface FolderObj {
   alias: string;
   icon: string;
 }
-
-// export interface LabelObj {
-//   id: number;
-//   name: string;
-//   alias: string;
-//   color: string;
-// }
