@@ -1,16 +1,14 @@
-import ContactListItem from './ContactListItem';
 import Box from '@material-ui/core/Box';
-import ContactGridItem from './ContactGridItem';
-import React from 'react';
-import {useSelector} from 'react-redux';
 import {makeStyles} from '@material-ui/core/styles';
-import AppList from '../../../../@crema/core/AppList';
+import React from 'react';
 import AppGrid from '../../../../@crema/core/AppGrid';
+import AppList from '../../../../@crema/core/AppList';
 import ListEmptyResult from '../../../../@crema/core/AppList/ListEmptyResult';
-import IntlMessages from '../../../../@crema/utility/IntlMessages';
 import ContactListSkeleton from '../../../../@crema/core/Skeleton/ContactListSkeleton';
-import {AppState} from '../../../../redux/store';
+import IntlMessages from '../../../../@crema/utility/IntlMessages';
 import {UserListObj} from '../../../../types/models/apps/UserList';
+import ContactGridItem from './ContactGridItem';
+import ContactListItem from './ContactListItem';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -47,14 +45,14 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
   onOpenEditContact,
   onViewContactDetail,
 }) => {
-  const {labelList} = useSelector<AppState, AppState['userList']>(
-    ({userList}) => userList,
-  );
-
   const classes = useStyles();
-
+  let test = 0;
+  // console.log('======================ContactViewContent.tsx');
+  // console.log(list);
+  // console.log('====================================');
   return (
     <>
+      {/* list 아니면 grid지 뭐.. */}
       {pageView === 'list' ? (
         <AppList
           data={list}
@@ -68,19 +66,35 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
               placeholder={<ContactListSkeleton />}
             />
           }
-          renderRow={contact => (
-            <ContactListItem
-              key={contact.id}
-              contact={contact}
-              labelList={labelList}
-              onChangeCheckedContacts={onChangeCheckedContacts}
-              checkedContacts={checkedContacts}
-              onSelectContactsForDelete={onSelectContactsForDelete}
-              onChangeStarred={onChangeStarred}
-              onViewContactDetail={onViewContactDetail}
-              onOpenEditContact={onOpenEditContact}
-            />
-          )}
+          renderRow={(contact) => {
+            console.log(contact.id);
+
+            return (
+              <ContactGridItem
+                key={contact.id}
+                contact={contact}
+                onChangeCheckedContacts={onChangeCheckedContacts}
+                checkedContacts={checkedContacts}
+                onChangeStarred={onChangeStarred}
+                onSelectContactsForDelete={onSelectContactsForDelete}
+                onViewContactDetail={onViewContactDetail}
+                onOpenEditContact={onOpenEditContact}
+              />
+            );
+          }}
+
+          // renderRow={(contact) => (
+          //   <ContactListItem
+          //     key={contact.id}
+          //     contact={contact}
+          //     onChangeCheckedContacts={onChangeCheckedContacts}
+          //     checkedContacts={checkedContacts}
+          //     onSelectContactsForDelete={onSelectContactsForDelete}
+          //     onChangeStarred={onChangeStarred}
+          //     onViewContactDetail={onViewContactDetail}
+          //     onOpenEditContact={onOpenEditContact}
+          //   />
+          // )}
         />
       ) : (
         <Box p={6}>
@@ -93,19 +107,20 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
               xl: 3,
             }}
             data={list}
-            renderRow={contact => (
-              <ContactGridItem
-                key={contact.id}
-                contact={contact}
-                labelList={labelList}
-                onChangeCheckedContacts={onChangeCheckedContacts}
-                checkedContacts={checkedContacts}
-                onChangeStarred={onChangeStarred}
-                onSelectContactsForDelete={onSelectContactsForDelete}
-                onViewContactDetail={onViewContactDetail}
-                onOpenEditContact={onOpenEditContact}
-              />
-            )}
+            renderRow={(contact) => {
+              return (
+                <ContactGridItem
+                  key={contact.id}
+                  contact={contact}
+                  onChangeCheckedContacts={onChangeCheckedContacts}
+                  checkedContacts={checkedContacts}
+                  onChangeStarred={onChangeStarred}
+                  onSelectContactsForDelete={onSelectContactsForDelete}
+                  onViewContactDetail={onViewContactDetail}
+                  onOpenEditContact={onOpenEditContact}
+                />
+              );
+            }}
           />
         </Box>
       )}

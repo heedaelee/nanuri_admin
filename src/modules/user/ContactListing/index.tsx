@@ -33,21 +33,13 @@ const ContactListing = () => {
   >(({userList}) => userList);
 
   const [filterText, onSetFilterText] = useState('');
-
   const [page, setPage] = useState(0);
-
   const [pageView, setPageView] = useState<string>('list');
-
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState<boolean>(false);
-
   const [checkedContacts, setCheckedContacts] = useState<number[]>([]);
-
   const [toDeleteContacts, setToDeleteContacts] = useState<number[]>([]);
-
   const [isAddContact, onSetIsAddContact] = useState<boolean>(false);
-
   const [isShowDetail, onShowDetail] = useState<boolean>(false);
-
   const [selectedContact, setSelectedContact] = useState<UserListObj | null>(
     null,
   );
@@ -100,7 +92,9 @@ const ContactListing = () => {
     if (event.target.checked) {
       setCheckedContacts(checkedContacts.concat(id));
     } else {
-      setCheckedContacts(checkedContacts.filter(contactId => contactId !== id));
+      setCheckedContacts(
+        checkedContacts.filter((contactId) => contactId !== id),
+      );
     }
   };
 

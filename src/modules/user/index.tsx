@@ -10,7 +10,7 @@ export const userPagesConfig = [
       //   component: React.lazy(() => import('./UserList_backup')),
       // },
       {
-        path: ['/user/userList/folder/:name', '/user/userList/label/:name'],
+        path: ['/user/userList/folder/:name'],
         component: React.lazy(() => import('./UserList')),
       },
       {
