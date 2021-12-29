@@ -12,14 +12,14 @@ export const fetchStart = (): CommonActionTypes => ({type: FETCH_START});
 
 export const fetchSuccess = (): CommonActionTypes => ({type: FETCH_SUCCESS});
 
-export const fetchError = (error: string): CommonActionTypes => ({
+export const fetchError = (payload: string): CommonActionTypes => ({
   type: FETCH_ERROR,
-  error,
+  payload,
 });
 
-export const showMessage = (message: string): CommonActionTypes => ({
+export const showMessage = (payload: string): CommonActionTypes => ({
   type: SHOW_MESSAGE,
-  message,
+  payload,
 });
 
 export const onToggleAppDrawer = (): CommonActionTypes => ({

@@ -7,7 +7,7 @@ import {
   // GET_HC_DATA,
   // GET_METRICS_DATA,
   // GET_WIDGETS_DATA,
-} from '../../shared/constants/ActionTypes';
+} from '../../../src/types/actions/Dashboard.action';
 
 const initialState = {
   // analyticsData: null,

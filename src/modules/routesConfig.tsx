@@ -29,6 +29,16 @@ const routesConfig: NavItemProps[] = [
     icon: 'dashboard',
     url: '/user/userList',
   },
+  {
+    id: 'product',
+    title: 'Product',
+    messageId: 'sidebar.product',
+    type: 'item',
+    icon: 'dashboard',
+    url: '/product',
+  },
+
+  
   // {
   //   id: 'user',
   //   title: 'User',

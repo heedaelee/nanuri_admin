@@ -16,12 +16,12 @@ export interface FetchSuccessAction {
 
 export interface FetchErrorAction {
   type: typeof FETCH_ERROR;
-  error: string;
+  payload: string;
 }
 
 export interface ShowMessageAction {
   type: typeof SHOW_MESSAGE;
-  message: string;
+  payload: string;
 }
 
 export interface ToggleDrawerAction {

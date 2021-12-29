@@ -1,26 +1,31 @@
 import {
+  UserListActionTypes,
   CREATE_NEW_CONTACT,
   DELETE_CONTACT,
-  GET_CONTACT_DETAIL,
   GET_CONTACT_FOLDER_LIST,
-  GET_CONTACT_LABEL_LIST,
   GET_CONTACT_LIST,
   TOGGLE_CONTACT_DRAWER,
   UPDATE_CONTACT_DETAIL,
-  UPDATE_CONTACT_LABEL,
   UPDATE_CONTACT_STARRED_STATUS,
-} from '../../shared/constants/ActionTypes';
+} from '../../types/actions/UserList.action';
 
-const initialState = {
+import {UserListObj, FolderObj} from '../../types/models/apps/UserList';
+
+const initialState: {
+  contactList: UserListObj[];
+  totalContacts: number;
+  contactDrawer: false;
+  folderList: FolderObj[];
+  selectedContact: UserListObj | null;
+} = {
   contactList: [],
-  totalContacts: null,
+  totalContacts: 0,
   contactDrawer: false,
-  labelList: [],
   folderList: [],
   selectedContact: null,
 };
 
-const contactReducer = (state = initialState, action) => {
+const contactReducer = (state = initialState, action: UserListActionTypes) => {
   switch (action.type) {
     case GET_CONTACT_LIST:
       return {
@@ -41,12 +46,6 @@ const contactReducer = (state = initialState, action) => {
         contactDrawer: !state.contactDrawer,
       };
 
-    case GET_CONTACT_LABEL_LIST:
-      return {
-        ...state,
-        labelList: action.payload,
-      };
-
     case CREATE_NEW_CONTACT:
       return {
         ...state,
@@ -59,31 +58,6 @@ const contactReducer = (state = initialState, action) => {
         ...state,
         contactList: action.payload.list,
         totalContacts: action.payload.total,
-      };
-    }
-
-    case UPDATE_CONTACT_LABEL: {
-      let contactIds = action.payload.data.map((contact) => contact.id);
-      const updatedList = state.contactList.map((contact) => {
-        if (contactIds.includes(contact.id)) {
-          return action.payload.data.find(
-            (selectedContact) => selectedContact.id === contact.id,
-          );
-        } else {
-          return contact;
-        }
-      });
-      const filteredList =
-        action.payload.labelName === 'label'
-          ? updatedList.filter(
-              (item) => item.label !== action.payload.labelType,
-            )
-          : updatedList;
-      const total = filteredList.length;
-      return {
-        ...state,
-        contactList: filteredList,
-        totalContacts: total,
       };
     }
 
@@ -100,7 +74,7 @@ const contactReducer = (state = initialState, action) => {
       });
       const filteredList =
         action.payload.folderName === 'starred'
-          ? updatedList.filter((item) => item.isStarred)
+          ? updatedList.filter((item) => item!.isStarred)
           : updatedList;
       const total =
         action.payload.folderName === 'starred'
@@ -112,12 +86,6 @@ const contactReducer = (state = initialState, action) => {
         totalContacts: total,
       };
     }
-
-    case GET_CONTACT_DETAIL:
-      return {
-        ...state,
-        selectedContact: action.payload,
-      };
 
     case UPDATE_CONTACT_DETAIL:
       return {
