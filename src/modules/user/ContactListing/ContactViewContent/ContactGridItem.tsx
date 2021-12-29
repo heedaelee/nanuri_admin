@@ -118,22 +118,6 @@ const ContactGridItem: React.FC<ContactGridItemProps> = ({
           py={2}
           width={{xl: 1 / 2}}
           display='flex'
-          alignItems='center'
-          justifyContent='center'>
-          <BusinessIcon className={classes.textBase} />
-          <Box ml={2} className={classes.truncate}>
-            {contact.company ? (
-              contact.company
-            ) : (
-              <IntlMessages id='common.na' />
-            )}
-          </Box>
-        </Box>
-        <Box
-          px={3}
-          py={2}
-          width={{xl: 1 / 2}}
-          display='flex'
           justifyContent='center'
           alignItems='center'
           borderTop={{xs: `1px solid ${grey[200]}`, xl: '0 none'}}

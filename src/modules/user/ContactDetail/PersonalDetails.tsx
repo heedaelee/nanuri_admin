@@ -51,27 +51,6 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({contact}) => {
           </Box>
         </Box>
 
-        <Box mb={2} display='flex' alignItems='center'>
-          <LanguageIcon className={classes.iconRoot} />
-          <Box ml={2} color='text.secondary' fontSize={14}>
-            {contact!.website ? (
-              contact!.website
-            ) : (
-              <IntlMessages id='common.na' />
-            )}
-          </Box>
-        </Box>
-
-        <Box display='flex' alignItems='center'>
-          <CakeIcon className={classes.iconRoot} />
-          <Box ml={2} color='text.secondary' fontSize={14}>
-            {contact!.birthday ? (
-              contact!.birthday
-            ) : (
-              <IntlMessages id='common.na' />
-            )}
-          </Box>
-        </Box>
       </Box>
     </Box>
   );

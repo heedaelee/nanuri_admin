@@ -66,35 +66,19 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
               placeholder={<ContactListSkeleton />}
             />
           }
-          renderRow={(contact) => {
-            console.log(contact.id);
 
-            return (
-              <ContactGridItem
-                key={contact.id}
-                contact={contact}
-                onChangeCheckedContacts={onChangeCheckedContacts}
-                checkedContacts={checkedContacts}
-                onChangeStarred={onChangeStarred}
-                onSelectContactsForDelete={onSelectContactsForDelete}
-                onViewContactDetail={onViewContactDetail}
-                onOpenEditContact={onOpenEditContact}
-              />
-            );
-          }}
-
-          // renderRow={(contact) => (
-          //   <ContactListItem
-          //     key={contact.id}
-          //     contact={contact}
-          //     onChangeCheckedContacts={onChangeCheckedContacts}
-          //     checkedContacts={checkedContacts}
-          //     onSelectContactsForDelete={onSelectContactsForDelete}
-          //     onChangeStarred={onChangeStarred}
-          //     onViewContactDetail={onViewContactDetail}
-          //     onOpenEditContact={onOpenEditContact}
-          //   />
-          // )}
+          renderRow={(contact) => (
+            <ContactListItem
+              key={contact.id}
+              contact={contact}
+              onChangeCheckedContacts={onChangeCheckedContacts}
+              checkedContacts={checkedContacts}
+              onSelectContactsForDelete={onSelectContactsForDelete}
+              onChangeStarred={onChangeStarred}
+              onViewContactDetail={onViewContactDetail}
+              onOpenEditContact={onOpenEditContact}
+            />
+          )}
         />
       ) : (
         <Box p={6}>

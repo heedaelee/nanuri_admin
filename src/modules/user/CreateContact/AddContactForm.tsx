@@ -1,18 +1,18 @@
-import { Box, Button } from '@material-ui/core';
+import {Box, Button} from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
-import { grey } from '@material-ui/core/colors';
-import { makeStyles } from '@material-ui/core/styles';
+import {grey} from '@material-ui/core/colors';
+import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { KeyboardDatePicker } from '@material-ui/pickers';
-import { Form, useField } from 'formik';
+import {KeyboardDatePicker} from '@material-ui/pickers';
+import {Form, useField} from 'formik';
 import React from 'react';
-import { useDropzone } from 'react-dropzone';
-import { useIntl } from 'react-intl';
+import {useDropzone} from 'react-dropzone';
+import {useIntl} from 'react-intl';
 import Scrollbar from '../../../@crema/core/Scrollbar';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
-import { Fonts } from '../../../shared/constants/AppEnums';
-import { CremaTheme } from '../../../types/AppContextPropsType';
-import { UserListObj } from '../../../types/models/apps/UserList';
+import {Fonts} from '../../../shared/constants/AppEnums';
+import {CremaTheme} from '../../../types/AppContextPropsType';
+import {UserListObj} from '../../../types/models/apps/UserList';
 
 const useStyles = makeStyles((theme: CremaTheme) => ({
   avatar: {
@@ -117,6 +117,7 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
 
             <Box px={{md: 5, lg: 8, xl: 10}}>
               <MyTextField
+                required={true}
                 className={classes.myTextField}
                 variant='outlined'
                 label={<IntlMessages id='common.name' />}
@@ -124,6 +125,7 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
               />
 
               <MyTextField
+                required={true}
                 className={classes.myTextField}
                 variant='outlined'
                 label={<IntlMessages id='common.email' />}
@@ -131,6 +133,7 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
               />
 
               <MyTextField
+                required={true}
                 className={classes.myTextField}
                 variant='outlined'
                 label={<IntlMessages id='common.phone' />}
@@ -148,13 +151,6 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
                 value={values.birthday}
                 onChange={(value) => setFieldValue('birthday', value)}
               />
-
-              <MyTextField
-                className={classes.widthFull}
-                variant='outlined'
-                label={<IntlMessages id='common.website' />}
-                name='website'
-              />
             </Box>
           </Box>
 
@@ -169,13 +165,7 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
 
             <Box px={{md: 5, lg: 8, xl: 10}}>
               <MyTextField
-                className={classes.myTextField}
-                variant='outlined'
-                label={<IntlMessages id='common.company' />}
-                name='company'
-              />
-
-              <MyTextField
+                required={true}
                 className={classes.widthFull}
                 variant='outlined'
                 label={<IntlMessages id='common.address' />}

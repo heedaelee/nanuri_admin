@@ -12,7 +12,7 @@ interface OtherDetailsProps {
   contact: UserListObj;
 }
 
-const useStyles = makeStyles(s => ({
+const useStyles = makeStyles((s) => ({
   borderBottomClass: {
     borderBottom: `1px solid ${grey[300]}`,
   },
@@ -34,17 +34,6 @@ const OtherDetails: React.FC<OtherDetailsProps> = ({contact}) => {
       </Box>
 
       <Box px={{xs: 5, lg: 8, xl: 10}}>
-        <Box mb={2} display='flex' alignItems='center'>
-          <BusinessIcon className={classes.businessIconRoot} />
-          <Box ml={2} color='text.secondary' fontSize={14}>
-            {contact.company ? (
-              contact.company
-            ) : (
-              <IntlMessages id='common.na' />
-            )}
-          </Box>
-        </Box>
-
         <Box display='flex' alignItems='center'>
           <HomeIcon className={classes.businessIconRoot} />
           <Box ml={2} color='text.secondary' fontSize={14}>

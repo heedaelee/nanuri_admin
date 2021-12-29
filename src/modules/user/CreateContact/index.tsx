@@ -89,14 +89,6 @@ const CreateContact: React.FC<CreateContactProps> = ({
               selectContact && selectContact.birthday
                 ? selectContact.birthday
                 : null,
-            website:
-              selectContact && selectContact.website
-                ? selectContact.website
-                : '',
-            company:
-              selectContact && selectContact.company
-                ? selectContact.company
-                : '',
             address:
               selectContact && selectContact.address
                 ? selectContact.address
@@ -111,8 +103,6 @@ const CreateContact: React.FC<CreateContactProps> = ({
                 : '',
             notes:
               selectContact && selectContact.notes ? selectContact.notes : '',
-            label:
-              selectContact && selectContact.label ? selectContact.label : '',
           }}
           validationSchema={validationSchema}
           onSubmit={(data, {setSubmitting, resetForm}) => {

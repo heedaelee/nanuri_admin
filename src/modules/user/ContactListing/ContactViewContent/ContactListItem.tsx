@@ -117,16 +117,6 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
             {contact.contact}
           </Box>
         </Box>
-        <Box
-          component='span'
-          mr={4}
-          flex={1}
-          display={{xs: 'none', md: 'block'}}
-          className={classes.truncate}>
-          <Box component='span' className={classes.truncate}>
-            {contact.company ? contact.company : null}
-          </Box>
-        </Box>
 
         <Box
           component='span'

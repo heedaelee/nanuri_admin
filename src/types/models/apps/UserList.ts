@@ -3,16 +3,13 @@ export interface UserListObj {
   name: string;
   email: string;
   contact: string;
-  company: string;
   isStarred: boolean;
   isFrequent: boolean;
-  label: number;
   image: string;
   address?: string;
   facebookId?: string;
   twitterId?: string;
   notes?: string;
-  website?: string;
   birthday?: string;
 }
 export interface FolderObj {

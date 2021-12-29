@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import AppleIcon from '@material-ui/icons/Apple';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import {makeStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
@@ -35,7 +35,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({contact}) => {
 
       <Box px={{xs: 5, lg: 8, xl: 10}}>
         <Box mb={2} display='flex' alignItems='center'>
-          <FacebookIcon className={classes.iconRoot} />
+          <AppleIcon className={classes.iconRoot} />
           <Box ml={2} color='text.secondary' fontSize={14}>
             {contact.facebookId ? (
               contact.facebookId

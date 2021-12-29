@@ -14,8 +14,6 @@ mock
   .reply((config: AxiosRequestConfig) => {
     const params = config.params;
     let folderContactList: UserListObj[];
-    
-    
 
     if (params.name === 'starred') {
       folderContactList = userList.filter((contact) => contact.isStarred);
@@ -76,24 +74,6 @@ mock
         ? folderContactList.slice(index, index + 15)
         : folderContactList;
     return [200, {list, total}];
-  });
-
-mock
-  .onPut('/api/contactApp/update/label')
-  .reply((request: AxiosRequestConfig) => {
-    const {contactIds, type} = JSON.parse(request.data);
-    userList = userList.map((contact) => {
-      if (contactIds.includes(contact.id)) {
-        contact.label = type;
-        return contact;
-      } else {
-        return contact;
-      }
-    });
-    const updatedContacts = userList.filter((contact) =>
-      contactIds.includes(contact.id),
-    );
-    return [200, updatedContacts];
   });
 
 mock.onPut('/api/contactApp/contact/').reply((request: AxiosRequestConfig) => {

@@ -32,8 +32,8 @@ const useStyles = makeStyles(() => ({
     cursor: 'pointer',
   },
   avatar: {
-    width: 55,
-    height: 55,
+    width: 140,
+    height: 140,
     marginBottom: 8,
   },
   borderBottomClass: {
@@ -97,6 +97,7 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
             <ContactActions
               onChangeStarred={onChangeStarred}
               onDeleteContact={onDeleteContact}
+              // 수정 모달 열기
               onOpenEditContact={onOpenEditContact}
               contact={contact!}
             />
@@ -121,7 +122,7 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
           <Box py={5} pl={{xs: 8, lg: 8, lx: 10}}>
             <Scrollbar style={{maxHeight: 400}}>
               {contact ? <PersonalDetails contact={contact} /> : null}
-              {contact ? <OtherDetails contact={contact} /> : null}
+              {/* {contact ? <OtherDetails contact={contact} /> : null} */}
               {contact ? <SocialMedia contact={contact} /> : null}
               {contact ? <Notes contact={contact} /> : null}
             </Scrollbar>
