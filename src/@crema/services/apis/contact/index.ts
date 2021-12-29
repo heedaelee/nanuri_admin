@@ -14,6 +14,8 @@ mock
   .reply((config: AxiosRequestConfig) => {
     const params = config.params;
     let folderContactList: UserListObj[];
+    
+    
 
     if (params.name === 'starred') {
       folderContactList = userList.filter((contact) => contact.isStarred);

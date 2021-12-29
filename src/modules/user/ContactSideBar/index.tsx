@@ -50,6 +50,7 @@ const SideBarContent: React.FC<{}> = () => {
 
   return (
     <>
+      {/*회원 추가*/}
       <Box px={{xs: 4, md: 5}} pt={{xs: 4, md: 5}} pb={{xs: 2, xl: 5}}>
         <AppAnimate>
           <Button
@@ -84,16 +85,11 @@ const SideBarContent: React.FC<{}> = () => {
                 <AppsSideBarFolderItem
                   key={item.id}
                   item={item}
-                  path={`/apps/contact/folder/${item.alias}`}
+                  path={`/user/userList/folder/${item.alias}`}
                 />
               )}
             />
           </List>
-
-          <Box component='h5' mt={{xs: 4, xl: 5}} fontWeight={Fonts.MEDIUM}>
-            <IntlMessages id='common.labels' />
-          </Box>
-
           {isAddContact ? (
             <CreateContact
               isAddContact={isAddContact}
