@@ -1,28 +1,28 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
-import AppleIcon from '@material-ui/icons/Apple';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import BusinessIcon from '@material-ui/icons/Business';
+import HomeIcon from '@material-ui/icons/Home';
 import {makeStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
 import {Fonts} from '../../../shared/constants/AppEnums';
 import {UserListObj} from '../../../types/models/apps/UserList';
 
-const useStyles = makeStyles(() => ({
+interface OtherDetailsProps {
+  contact: UserListObj;
+}
+
+const useStyles = makeStyles((s) => ({
   borderBottomClass: {
     borderBottom: `1px solid ${grey[300]}`,
   },
-  iconRoot: {
+  businessIconRoot: {
     fontSize: 16,
     color: 'grey.600',
   },
 }));
 
-interface SocialMediaProps {
-  contact: UserListObj;
-}
-
-const SocialMedia: React.FC<SocialMediaProps> = ({contact}) => {
+const OtherDetails: React.FC<OtherDetailsProps> = ({contact}) => {
   const classes = useStyles();
   return (
     <Box
@@ -30,26 +30,15 @@ const SocialMedia: React.FC<SocialMediaProps> = ({contact}) => {
       py={5}
       className={classes.borderBottomClass}>
       <Box component='h6' mb={2} fontWeight={Fonts.MEDIUM} fontSize={16}>
-        <IntlMessages id='common.socialMedia' />
+        <IntlMessages id='common.otherDetails' />
       </Box>
 
       <Box px={{xs: 5, lg: 8, xl: 10}}>
-        <Box mb={2} display='flex' alignItems='center'>
-          <AppleIcon className={classes.iconRoot} />
-          <Box ml={2} color='text.secondary' fontSize={14}>
-            {contact.appleId ? (
-              contact.appleId
-            ) : (
-              <IntlMessages id='common.na' />
-            )}
-          </Box>
-        </Box>
-
         <Box display='flex' alignItems='center'>
-          <TwitterIcon className={classes.iconRoot} />
+          <HomeIcon className={classes.businessIconRoot} />
           <Box ml={2} color='text.secondary' fontSize={14}>
-            {contact.kakaoId ? (
-              contact.kakaoId
+            {contact!.address ? (
+              contact!.address
             ) : (
               <IntlMessages id='common.na' />
             )}
@@ -60,4 +49,4 @@ const SocialMedia: React.FC<SocialMediaProps> = ({contact}) => {
   );
 };
 
-export default SocialMedia;
+export default OtherDetails;

@@ -5,6 +5,7 @@ import {createRoutes} from '../@crema/utility/Utils';
 import {userPagesConfig} from './user';
 import {errorPagesConfigs} from './errorPages';
 import {authRouteConfig} from './auth';
+import {productPagesConfig} from './product';
 import {initialUrl} from '../shared/constants/AppConst';
 
 import {dashboardPagesConfig} from './dashboard';
@@ -13,6 +14,7 @@ const routeConfigs = [
   ...userPagesConfig,
   ...errorPagesConfigs,
   ...authRouteConfig,
+  ...productPagesConfig,
 ];
 
 const routes = [

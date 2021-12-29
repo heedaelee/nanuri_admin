@@ -1,4 +1,4 @@
-export interface UserListObj {
+export interface ProductListObj {
   id: number;
   name: string;
   email: string;

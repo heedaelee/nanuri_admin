@@ -3,6 +3,7 @@ import CommonReducer from './CommonReducer';
 import Auth from './Auth';
 import Dashboard from './Dashboard';
 import UserListReducer from './UserList';
+import ProductListReducer from './ProductList';
 
 //루트 리듀서
 const reducers = {
@@ -11,6 +12,7 @@ const reducers = {
   common: CommonReducer,
   dashboard: Dashboard,
   userList: UserListReducer,
+  productList: ProductListReducer,
   // contactApp: ContactApp,
 };
 
