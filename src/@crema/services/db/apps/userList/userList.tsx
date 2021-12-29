@@ -52,7 +52,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A5.jpg',
   },
   {
@@ -63,7 +62,6 @@ const userList: UserListObj[] = [
 
     isStarred: true,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A6.jpg',
   },
   {
@@ -74,7 +72,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A7.jpg',
   },
   {
@@ -85,7 +82,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A8.jpg',
   },
   {
@@ -132,7 +128,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A13.jpg',
   },
   {
@@ -143,7 +138,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A14.jpg',
   },
   {
@@ -154,7 +148,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A15.jpg',
   },
   {
@@ -165,7 +158,6 @@ const userList: UserListObj[] = [
 
     isStarred: true,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A16.jpg',
   },
   {
@@ -176,7 +168,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A17.jpg',
   },
   {
@@ -187,7 +178,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A18.jpg',
   },
   {
@@ -198,7 +188,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A19.jpg',
   },
   {
@@ -209,7 +198,6 @@ const userList: UserListObj[] = [
 
     isStarred: false,
     isFrequent: Math.random() > 0.5,
-
     image: '/assets/images/avatar/A20.jpg',
   },
 ];
