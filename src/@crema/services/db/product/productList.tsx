@@ -16,6 +16,7 @@ const productList: ProductListObj[] = [
     deliveryMethod: '배송',
     detailContent: '고양이 장난감을 구매해봅시다. 집사님들 모여라!!',
     createdAt: '2021/12/30',
+    activated: '0',
     isStarred: true,
     img: [
       {
@@ -24,7 +25,7 @@ const productList: ProductListObj[] = [
         prodId: '1',
         name: '장난감',
         type: 'png',
-        url: 'assets/images/product/고양이 낚시대.png',
+        url: '/assets/images/product/catPlay.png',
       },
     ],
     reply: [

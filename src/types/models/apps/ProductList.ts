@@ -14,6 +14,7 @@ export interface ProductListObj {
   detailContent: string;
   createdAt: string;
   isStarred: boolean;
+  activated: string;
   img?: [
     {
       id: string;

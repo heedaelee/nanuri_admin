@@ -144,6 +144,7 @@ const ContactListing = () => {
 
   return (
     <>
+      {/* 헤더 */}
       <AppsHeader>
         <ContactHeader
           checkedContacts={checkedContacts}
@@ -157,6 +158,8 @@ const ContactListing = () => {
           pageView={pageView}
         />
       </AppsHeader>
+
+      {/* 테이블 */}
       <AppsContent>
         <ContactViewContent
           list={list}
@@ -172,6 +175,7 @@ const ContactListing = () => {
         />
       </AppsContent>
 
+      {/* 600px 업일때 숨겨지는 푸터내 페이지네이션 */}
       <Hidden smUp>
         {contactList.length > 0 ? (
           <AppsFooter>
@@ -184,6 +188,7 @@ const ContactListing = () => {
         ) : null}
       </Hidden>
 
+      {/* 아래는 다 모달 형식으로 C,R,D 표시  */}
       {isAddContact ? (
         <CreateProduct
           isAddContact={isAddContact}

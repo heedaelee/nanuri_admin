@@ -7,9 +7,11 @@ import clsx from 'clsx';
 import ItemMenu from './ItemMenu';
 import AppsStarredIcon from '../../../../@crema/core/AppsStarredIcon';
 import {makeStyles} from '@material-ui/core/styles';
-import {blue, grey} from '@material-ui/core/colors';
 import {Fonts} from '../../../../shared/constants/AppEnums';
 import {ProductListObj} from '../../../../types/models/apps/ProductList';
+import LabelBox from './LableBox';
+import {blue, green, grey, red} from '@material-ui/core/colors';
+import { Hidden } from '@material-ui/core';
 
 interface ContactListItemProps {
   product: ProductListObj;
@@ -54,11 +56,15 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
       whiteSpace: 'nowrap',
     },
     avatar: {
-      backgroundColor: blue[500],
+      backgroundColor: grey[700],
+      fontSize: 11,
     },
   }));
 
   const classes = useStyles();
+  console.log('====================================');
+  console.log(product.img && product.img[0].url);
+  console.log('====================================');
 
   return (
     <>
@@ -70,8 +76,9 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
           rootCheck: checkedContacts.includes(product.id),
         })}
         onClick={() => onViewContactDetail(product)}>
+        {/* 체크박스 */}
         <Box
-          mr={{xs: 2, sm: 4}}
+          mr={{xs: 1, sm: 2}}
           component='span'
           onClick={(event) => event.stopPropagation()}>
           <Checkbox
@@ -80,44 +87,92 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
             color='primary'
           />
         </Box>
-        <Box mr={3} component='span'>
-          {/* {product.image ? (
-            <Avatar src={product.image} />
+
+        {/* 진행중 토글 */}
+        <Box component='span' flex={1} mx={2}>
+          {product.activated === '0' ? (
+            <LabelBox name='진행중' color={green[500]} />
           ) : (
-            <Avatar className={classes.avatar}>
-              {product.name[0].toUpperCase()}
-            </Avatar>
-          )} */}
+            <LabelBox name='종료' color={grey[500]} />
+          )}
         </Box>
+
+        {/* 사진 */}
+        <Box mr={3} component='span'>
+          {product.img && product.img.length > 0 ? (
+            <Avatar src={product.img[0].url} />
+          ) : (
+            <Avatar className={classes.avatar}>{'사진없음'}</Avatar>
+          )}
+        </Box>
+        {/* 제품이름 */}
         <Box
           mr={4}
           fontWeight={Fonts.MEDIUM}
           component='span'
-          flex={1}
+          flex={1.3}
           className={classes.truncate}>
           {product.productName}
         </Box>
 
+        {/* 참여인원 */}
         <Box
-          component='span'
           mr={4}
-          flex={1}
-          display={{xs: 'none', sm: 'block'}}
+          fontWeight={Fonts.MEDIUM}
+          component='span'
+          flex={0.8}
           className={classes.truncate}>
-          <Box component='span' className={classes.truncate}>
-            {product.productPrice ? product.productPrice : null}
-          </Box>
+          {product.joinPplCnt + ' / ' + product.totalPplCnt + ' 명'}
         </Box>
+
+        {/*시작 종료 기간*/}
         <Box
           component='span'
           mr={4}
-          flex={1}
+          flex={1.6}
           display={{xs: 'none', md: 'block'}}>
           <Box component='span' className={classes.truncate}>
-            {product.productName}
+            {product.startPeriod + '   ~   ' + product.endPeriod}
           </Box>
         </Box>
 
+        {/* 제품가격 */}
+        <Box
+          component='span'
+          mr={4}
+          flex={0.8}
+          display={{xs: 'none', sm: 'block'}}
+          className={classes.truncate}>
+          <Box component='span' className={classes.truncate}>
+            {product.productPrice ? product.productPrice + ' 원' : null}
+          </Box>
+        </Box>
+
+        {/* 카테고리 */}
+        <Box
+          component='span'
+          mr={4}
+          flex={0.8}
+          display={{xs: 'none', sm: 'block'}}
+          className={classes.truncate}>
+          <Box component='span' className={classes.truncate}>
+            {product.category}
+          </Box>
+        </Box>
+
+        {/* 배송상태 */}
+        <Box
+          component='span'
+          mr={4}
+          flex={0.5}
+          display={{xs: 'none', sm: 'block'}}
+          className={classes.truncate}>
+          <Box component='span' className={classes.truncate}>
+            {product.deliveryMethod}
+          </Box>
+        </Box>
+
+        {/* 별 */}
         <Box
           component='span'
           ml='auto'
