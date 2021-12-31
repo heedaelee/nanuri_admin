@@ -15,7 +15,7 @@ const LabelBox: React.FC<LabelBoxProps> = ({name, color}) => {
       py={1}
       color='primary.contrastText'
       borderRadius='30px'
-      fontSize={14}
+      // fontSize={14}
       bgcolor={color}>
       {name}
     </Box>

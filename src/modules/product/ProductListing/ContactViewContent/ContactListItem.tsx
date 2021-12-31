@@ -10,8 +10,16 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Fonts} from '../../../../shared/constants/AppEnums';
 import {ProductListObj} from '../../../../types/models/apps/ProductList';
 import LabelBox from './LableBox';
-import {blue, green, grey, red} from '@material-ui/core/colors';
-import { Hidden } from '@material-ui/core';
+import {
+  lime,
+  lightBlue,
+  deepOrange,
+  pink,
+  green,
+  grey,
+  red,
+} from '@material-ui/core/colors';
+import {Hidden} from '@material-ui/core';
 
 interface ContactListItemProps {
   product: ProductListObj;
@@ -42,6 +50,7 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
       borderBottom: `1px solid ${grey[300]}`,
       paddingTop: 8,
       paddingBottom: 8,
+      fontSize: 12,
       paddingLeft: 20,
       paddingRight: 20,
       cursor: 'pointer',
@@ -65,6 +74,46 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
   console.log('====================================');
   console.log(product.img && product.img[0].url);
   console.log('====================================');
+
+  //카테고리 계산
+  let cateLabel = {name: '', color: ''};
+  cateLabel.name = product.category;
+  switch (cateLabel.name) {
+    case '음식':
+      cateLabel.color = lime[500];
+      break;
+    case '생활용품':
+      cateLabel.color = deepOrange[500];
+      break;
+    case '주방':
+      cateLabel.color = pink[500];
+      break;
+    case '욕실':
+      cateLabel.color = red[500];
+      break;
+    case '문구':
+      cateLabel.color = lightBlue[500];
+      break;
+    case '기타':
+      cateLabel.color = green[500];
+      break;
+    default:
+      break;
+  }
+
+  //배송중 계산
+  let deliverLabel = {name: '', color: ''};
+  deliverLabel.name = product.deliveryMethod;
+  switch (deliverLabel.name) {
+    case '배송':
+      deliverLabel.color = lightBlue[500];
+      break;
+    case '직거래':
+      deliverLabel.color = deepOrange[500];
+      break;
+    default:
+      break;
+  }
 
   return (
     <>
@@ -149,27 +198,23 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
         </Box>
 
         {/* 카테고리 */}
+        {/* <Hidden smDown> */}
         <Box
           component='span'
-          mr={4}
-          flex={0.8}
-          display={{xs: 'none', sm: 'block'}}
-          className={classes.truncate}>
-          <Box component='span' className={classes.truncate}>
-            {product.category}
-          </Box>
+          flex={1}
+          mr={2}
+          display={{xs: 'none', sm: 'block'}}>
+          <LabelBox name={cateLabel.name} color={cateLabel.color} />
         </Box>
+        {/* </Hidden> */}
 
         {/* 배송상태 */}
         <Box
           component='span'
-          mr={4}
-          flex={0.5}
-          display={{xs: 'none', sm: 'block'}}
-          className={classes.truncate}>
-          <Box component='span' className={classes.truncate}>
-            {product.deliveryMethod}
-          </Box>
+          mr={2}
+          flex={1}
+          display={{xs: 'none', sm: 'block'}}>
+          <LabelBox name={deliverLabel.name} color={deliverLabel.color} />
         </Box>
 
         {/* 별 */}
