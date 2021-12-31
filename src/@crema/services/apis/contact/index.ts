@@ -1,6 +1,6 @@
 import UserListData from '../../db/apps/userList/userList';
 import mock from '../../MockConfig';
-import folderList from '../../db/apps/userList/folderList';
+import folderList from '../../db/folderList';
 
 import {AxiosRequestConfig} from 'axios';
 import {UserListObj} from '../../../../types/models/apps/UserList';

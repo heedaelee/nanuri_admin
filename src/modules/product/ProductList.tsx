@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import {onGetFolderList} from '../../redux/actions/UserList';
-import ContactListing from './ProductListing';
+import {onGetFolderList} from '../../redux/actions/ProductList';
+import ProductListing from './ProductListing';
 import {useIntl} from 'react-intl';
 import AppsContainer from '../../@crema/core/AppsContainer';
 import SideBarContent from './ProductSideBar';
@@ -18,7 +18,7 @@ const Product = () => {
     <AppsContainer
       title={messages['product'] as string}
       sidebarContent={<SideBarContent />}>
-      <ContactListing />
+      <ProductListing />
     </AppsContainer>
   );
 };

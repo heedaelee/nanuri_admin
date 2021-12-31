@@ -2,23 +2,23 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useLocation} from 'react-router-dom';
 import {
-  onDeleteContacts,
-  onGetContactList,
+  onDeleteProducts,
+  onGetProductList,
   onUpdateStarredStatus,
-} from '../../../redux/actions/UserList';
+} from '../../../redux/actions/ProductList';
 import ContactHeader from './ContactHeader';
 import ConfirmationDialog from '../../../@crema/core/ConfirmationDialog';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
-import CreateContact from '../ProductContact';
+import CreateProduct from '../ProductContact';
 import {Hidden} from '@material-ui/core';
 import ContactViewContent from './ContactViewContent';
-import ContactDetail from '../ProductDetail';
+import ProductDetail from '../ProductDetail';
 import AppsPagination from '../../../@crema/core/AppsPagination';
 import AppsHeader from '../../../@crema/core/AppsContainer/AppsHeader';
 import AppsContent from '../../../@crema/core/AppsContainer/AppsContent';
 import AppsFooter from '../../../@crema/core/AppsContainer/AppsFooter';
 import {AppState} from '../../../redux/store';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 
 const ContactListing = () => {
   const dispatch = useDispatch();
@@ -27,20 +27,20 @@ const ContactListing = () => {
   const {
     contactList,
     totalContacts,
-  }: {contactList: UserListObj[]; totalContacts: number} = useSelector<
+  }: {contactList: ProductListObj[]; totalContacts: number} = useSelector<
     AppState,
-    AppState['userList']
-  >(({userList}) => userList);
+    AppState['productList']
+  >(({productList}) => productList);
 
   const [filterText, onSetFilterText] = useState('');
   const [page, setPage] = useState(0);
   const [pageView, setPageView] = useState<string>('list');
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState<boolean>(false);
-  const [checkedContacts, setCheckedContacts] = useState<number[]>([]);
-  const [toDeleteContacts, setToDeleteContacts] = useState<number[]>([]);
+  const [checkedContacts, setCheckedContacts] = useState<string[]>([]);
+  const [toDeleteContacts, setToDeleteContacts] = useState<string[]>([]);
   const [isAddContact, onSetIsAddContact] = useState<boolean>(false);
   const [isShowDetail, onShowDetail] = useState<boolean>(false);
-  const [selectedContact, setSelectedContact] = useState<UserListObj | null>(
+  const [selectedContact, setSelectedContact] = useState<ProductListObj | null>(
     null,
   );
 
@@ -55,7 +55,7 @@ const ContactListing = () => {
   useEffect(() => {
     const path = pathname.split('/');
     dispatch(
-      onGetContactList(path[path.length - 2], path[path.length - 1], page),
+      onGetProductList(path[path.length - 2], path[path.length - 1], page),
     );
   }, [pathname, pageView, page, dispatch]);
 
@@ -67,13 +67,13 @@ const ContactListing = () => {
     onSetIsAddContact(false);
   };
 
-  const onViewContactDetail = (contact: UserListObj) => {
-    setSelectedContact(contact);
+  const onViewContactDetail = (product: ProductListObj) => {
+    setSelectedContact(product);
     onShowDetail(true);
   };
 
-  const onOpenEditContact = (contact: UserListObj) => {
-    setSelectedContact(contact);
+  const onOpenEditContact = (product: ProductListObj) => {
+    setSelectedContact(product);
     handleAddContactOpen();
   };
 
@@ -88,7 +88,7 @@ const ContactListing = () => {
     setPageView(view);
   };
 
-  const onChangeCheckedContacts = (event: any, id: number) => {
+  const onChangeCheckedContacts = (event: any, id: string) => {
     if (event.target.checked) {
       setCheckedContacts(checkedContacts.concat(id));
     } else {
@@ -98,16 +98,16 @@ const ContactListing = () => {
     }
   };
 
-  const onChangeStarred = (status: boolean, contact: UserListObj) => {
-    const selectedIdList = [contact.id];
+  const onChangeStarred = (status: boolean, product: ProductListObj) => {
+    const selectedIdList = [product.id];
     const path = pathname.split('/');
     dispatch(
       onUpdateStarredStatus(selectedIdList, status, path[path.length - 1]),
     );
   };
 
-  const onUpdateContact = (contact: UserListObj) => {
-    setSelectedContact(contact);
+  const onUpdateContact = (product: ProductListObj) => {
+    setSelectedContact(product);
     handleAddContactClose();
   };
 
@@ -115,8 +115,8 @@ const ContactListing = () => {
     if (filterText === '') {
       return contactList;
     } else {
-      return contactList.filter((contact: UserListObj) =>
-        contact.name.toUpperCase().includes(filterText.toUpperCase()),
+      return contactList.filter((product: ProductListObj) =>
+        product.productName.toUpperCase().includes(filterText.toUpperCase()),
       );
     }
   };
@@ -124,7 +124,7 @@ const ContactListing = () => {
   const onDeleteSelectedContacts = () => {
     const path = pathname.split('/');
     dispatch(
-      onDeleteContacts(
+      onDeleteProducts(
         path[path.length - 2],
         path[path.length - 1],
         toDeleteContacts,
@@ -135,7 +135,7 @@ const ContactListing = () => {
     setCheckedContacts([]);
   };
 
-  const onSelectContactsForDelete = (contactIds: number[]) => {
+  const onSelectContactsForDelete = (contactIds: string[]) => {
     setToDeleteContacts(contactIds);
     setDeleteDialogOpen(true);
   };
@@ -185,7 +185,7 @@ const ContactListing = () => {
       </Hidden>
 
       {isAddContact ? (
-        <CreateContact
+        <CreateProduct
           isAddContact={isAddContact}
           handleAddContactClose={handleAddContactClose}
           selectContact={selectedContact}
@@ -194,7 +194,7 @@ const ContactListing = () => {
       ) : null}
 
       {isShowDetail ? (
-        <ContactDetail
+        <ProductDetail
           selectedContact={selectedContact}
           isShowDetail={isShowDetail}
           onShowDetail={onShowDetail}
@@ -208,7 +208,7 @@ const ContactListing = () => {
           open={isDeleteDialogOpen}
           onDeny={setDeleteDialogOpen}
           onConfirm={onDeleteSelectedContacts}
-          title={<IntlMessages id='userList.deleteContact' />}
+          title={<IntlMessages id='product.deleteContact' />}
           dialogTitle={<IntlMessages id='common.deleteItem' />}
         />
       ) : null}

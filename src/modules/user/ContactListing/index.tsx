@@ -54,6 +54,8 @@ const ContactListing = () => {
 
   useEffect(() => {
     const path = pathname.split('/');
+    // path가 apps/contact/folder/starred 이렇게 나오니까 .split('/') 하면 string[4]
+    //param(path[4-2]는 folder, path[4-1]은 list|all.., 마지막은 page)
     dispatch(
       onGetContactList(path[path.length - 2], path[path.length - 1], page),
     );

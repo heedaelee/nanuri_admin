@@ -3,27 +3,27 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Box from '@material-ui/core/Box';
 import {useSelector} from 'react-redux';
 import {AppState} from '../../../../redux/store';
-import {UserListObj} from '../../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../../types/models/apps/ProductList';
 
 interface CheckBoxProps {
-  checkedContacts: number[];
-  setCheckedContacts: (contactIds: number[]) => void;
+  checkedContacts: string[];
+  setCheckedContacts: (contactIds: string[]) => void;
 }
 
 const CheckBox: React.FC<CheckBoxProps> = ({
   checkedContacts,
   setCheckedContacts,
 }) => {
-  const {contactList}: {contactList: UserListObj[]} = useSelector<
+  const {contactList}: {contactList: ProductListObj[]} = useSelector<
     AppState,
-    AppState['userList']
-  >(({userList}) => userList);
+    AppState['productList']
+  >(({productList}) => productList);
 
   const onHandleMasterCheckbox = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     if (event.target.checked) {
-      const contactIds = contactList.map(contact => contact.id);
+      const contactIds = contactList.map((contact) => contact.id);
       setCheckedContacts(contactIds);
     } else {
       setCheckedContacts([]);

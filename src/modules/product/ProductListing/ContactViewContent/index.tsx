@@ -6,7 +6,7 @@ import AppList from '../../../../@crema/core/AppList';
 import ListEmptyResult from '../../../../@crema/core/AppList/ListEmptyResult';
 import ContactListSkeleton from '../../../../@crema/core/Skeleton/ContactListSkeleton';
 import IntlMessages from '../../../../@crema/utility/IntlMessages';
-import {UserListObj} from '../../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../../types/models/apps/ProductList';
 import ContactGridItem from './ContactGridItem';
 import ContactListItem from './ContactListItem';
 
@@ -21,16 +21,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface ContactViewContentProps {
-  list: UserListObj[];
+  list: ProductListObj[];
   pageView: string;
   loading: boolean;
   handleAddContactOpen: () => void;
-  onChangeStarred: (isStarred: boolean, contact: UserListObj) => void;
-  onChangeCheckedContacts: (event: any, id: number) => void;
-  checkedContacts: number[];
-  onSelectContactsForDelete: (contactIds: number[]) => void;
-  onOpenEditContact: (contact: UserListObj) => void;
-  onViewContactDetail: (contact: UserListObj) => void;
+  onChangeStarred: (isStarred: boolean, contact: ProductListObj) => void;
+  onChangeCheckedContacts: (event: any, id: string) => void;
+  checkedContacts: string[];
+  onSelectContactsForDelete: (contactIds: string[]) => void;
+  onOpenEditContact: (contact: ProductListObj) => void;
+  onViewContactDetail: (contact: ProductListObj) => void;
 }
 
 const ContactViewContent: React.FC<ContactViewContentProps> = ({
@@ -67,10 +67,10 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
             />
           }
 
-          renderRow={(contact) => (
+          renderRow={(product) => (
             <ContactListItem
-              key={contact.id}
-              contact={contact}
+              key={product.id}
+              product={product}
               onChangeCheckedContacts={onChangeCheckedContacts}
               checkedContacts={checkedContacts}
               onSelectContactsForDelete={onSelectContactsForDelete}

@@ -5,7 +5,7 @@ import {useIntl} from 'react-intl';
 import {makeStyles} from '@material-ui/core/styles';
 import {Fonts} from '../../../shared/constants/AppEnums';
 import TextField from '@material-ui/core/TextField';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles(() => ({
   textareaAutosizeRoot: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface NotesProps {
-  contact: UserListObj;
+  contact: ProductListObj;
 }
 
 const Notes: React.FC<NotesProps> = ({contact}) => {
@@ -34,7 +34,7 @@ const Notes: React.FC<NotesProps> = ({contact}) => {
         rows='4'
         placeholder={messages['common.notes'] as string}
         name='notes'
-        value={contact.notes}
+        value={contact.detailContent}
         variant='outlined'
         disabled
       />

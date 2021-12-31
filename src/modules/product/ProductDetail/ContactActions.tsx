@@ -4,13 +4,13 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AppsStarredIcon from '../../../@crema/core/AppsStarredIcon';
 import {makeStyles} from '@material-ui/core/styles';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 
 interface ContactActionsProps {
-  contact: UserListObj;
+  contact: ProductListObj;
   onDeleteContact: () => void;
   onChangeStarred: (checked: boolean, item: any) => void;
-  onOpenEditContact: (contact: UserListObj) => void;
+  onOpenEditContact: (contact: ProductListObj) => void;
 }
 
 const useStyles = makeStyles(() => ({

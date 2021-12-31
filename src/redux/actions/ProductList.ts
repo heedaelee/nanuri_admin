@@ -7,19 +7,24 @@ import {
   SHOW_MESSAGE,
 } from '../../types/actions/Common.action';
 import {
-  UserListActionTypes,
-  CREATE_NEW_CONTACT,
-  DELETE_CONTACT,
-  GET_CONTACT_FOLDER_LIST,
-  GET_CONTACT_LIST,
-  TOGGLE_CONTACT_DRAWER,
-  UPDATE_CONTACT_DETAIL,
-  UPDATE_CONTACT_STARRED_STATUS,
-} from '../../types/actions/UserList.action';
+  ProductListActionTypes,
+  CREATE_NEW_PRODUCT,
+  DELETE_PRODUCT,
+  GET_PRODUCT_FOLDER_LIST,
+  GET_PRODUCT_LIST,
+  TOGGLE_PRODUCT_DRAWER,
+  UPDATE_PRODUCT_DETAIL,
+  UPDATE_PRODUCT_STARRED_STATUS,
+} from '../../types/actions/ProductList.action';
 import Api from '../../@crema/services/ApiConfig';
 import {appIntl} from '../../@crema/utility/Utils';
 
-export const onGetContactList = (
+/* 경로설명: 
+api호출은 src/@crema/services/apis ... 로 호출한다
+*/
+
+//onGetContactList ->
+export const onGetProductList = (
   type: string,
   name: string,
   currentPage: number,
@@ -28,7 +33,7 @@ export const onGetContactList = (
   const page = currentPage ? currentPage : 0;
   return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
-    Api.get('/api/contactApp/contact/List', {
+    Api.get('/api/product/List', {
       params: {
         type: type,
         name: name,
@@ -38,7 +43,7 @@ export const onGetContactList = (
       .then((data) => {
         if (data.status === 200) {
           dispatch({type: FETCH_SUCCESS});
-          dispatch({type: GET_CONTACT_LIST, payload: data.data});
+          dispatch({type: GET_PRODUCT_LIST, payload: data.data});
         } else {
           dispatch({
             type: FETCH_ERROR,
@@ -56,11 +61,11 @@ export const onGetFolderList = () => {
   const {messages} = appIntl();
   return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
-    Api.get('/api/contactApp/folders/list')
+    Api.get('/api/product/folders/list')
       .then((data) => {
         if (data.status === 200) {
           dispatch({type: FETCH_SUCCESS});
-          dispatch({type: GET_CONTACT_FOLDER_LIST, payload: data.data});
+          dispatch({type: GET_PRODUCT_FOLDER_LIST, payload: data.data});
         } else {
           dispatch({
             type: FETCH_ERROR,
@@ -74,26 +79,27 @@ export const onGetFolderList = () => {
   };
 };
 
-export const onToggleContactDrawer = () => {
+//onToggleContactDrawer to->
+export const onToggleProductDrawer = () => {
   return (dispatch: Dispatch<AppActions>) => {
-    dispatch({type: TOGGLE_CONTACT_DRAWER});
+    dispatch({type: TOGGLE_PRODUCT_DRAWER});
   };
 };
 
 export const onUpdateStarredStatus = (
-  contactIds: number[],
+  contactIds: string[],
   status: boolean,
   folderName: string,
 ) => {
   const {messages} = appIntl();
   return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
-    Api.put('/api/contactApp/update/starred', {contactIds, status})
+    Api.put('/api/product/update/starred', {contactIds, status})
       .then((data) => {
         if (data.status === 200) {
           dispatch({type: FETCH_SUCCESS});
           dispatch({
-            type: UPDATE_CONTACT_STARRED_STATUS,
+            type: UPDATE_PRODUCT_STARRED_STATUS,
             payload: {data: data.data, folderName: folderName},
           });
           dispatch({
@@ -113,20 +119,20 @@ export const onUpdateStarredStatus = (
   };
 };
 
-export const onDeleteContacts = (
+export const onDeleteProducts = (
   type: string,
   name: string,
-  contactIds: number[],
+  contactIds: string[],
   page: number,
 ) => {
   const {messages} = appIntl();
   return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
-    Api.post('/api/contactApp/delete/contact', {type, name, contactIds, page})
+    Api.post('/api/product/delete/contact', {type, name, contactIds, page})
       .then((data) => {
         if (data.status === 200) {
           dispatch({type: FETCH_SUCCESS});
-          dispatch({type: DELETE_CONTACT, payload: data.data});
+          dispatch({type: DELETE_PRODUCT, payload: data.data});
           dispatch({
             type: SHOW_MESSAGE,
             payload: messages['message.contactDeleted'],
@@ -144,15 +150,15 @@ export const onDeleteContacts = (
   };
 };
 
-export const onUpdateSelectedContact = (contact: any) => {
+export const onUpdateSelectedProduct = (contact: any) => {
   const {messages} = appIntl();
   return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
-    Api.put('/api/contactApp/contact/', {contact})
+    Api.put('/api/product/', {contact})
       .then((data) => {
         if (data.status === 200) {
           dispatch({type: FETCH_SUCCESS});
-          dispatch({type: UPDATE_CONTACT_DETAIL, payload: data.data});
+          dispatch({type: UPDATE_PRODUCT_DETAIL, payload: data.data});
           dispatch({
             type: SHOW_MESSAGE,
             payload: messages['message.contactUpdated'],
@@ -170,15 +176,15 @@ export const onUpdateSelectedContact = (contact: any) => {
   };
 };
 
-export const onCreateContact = (contact: any) => {
+export const onCreateProduct = (contact: any) => {
   const {messages} = appIntl();
   return (dispatch: Dispatch<AppActions>) => {
     dispatch({type: FETCH_START});
-    Api.post('/api/contactApp/compose', {contact})
+    Api.post('/api/product/compose', {contact})
       .then((data) => {
         if (data.status === 200) {
           dispatch({type: FETCH_SUCCESS});
-          dispatch({type: CREATE_NEW_CONTACT, payload: data.data});
+          dispatch({type: CREATE_NEW_PRODUCT, payload: data.data});
           dispatch({
             type: SHOW_MESSAGE,
             payload: messages['message.contactCreated'],

@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
 import Scrollbar from '../../../@crema/core/Scrollbar';
-import CreateContact from '../ProductContact';
+import CreateProduct from '../ProductContact';
 import AppsSideBarFolderItem from '../../../@crema/core/AppsSideBarFolderItem';
 import {makeStyles} from '@material-ui/core/styles';
 import {Fonts} from '../../../shared/constants/AppEnums';
@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme: CremaTheme) => ({
 }));
 
 const SideBarContent: React.FC<{}> = () => {
-  const {folderList} = useSelector<AppState, AppState['userList']>(
-    ({userList}) => userList,
+  const {folderList} = useSelector<AppState, AppState['productList']>(
+    ({productList}) => productList,
   );
 
   const [isAddContact, onSetIsAddContact] = useState(false);
@@ -50,7 +50,7 @@ const SideBarContent: React.FC<{}> = () => {
 
   return (
     <>
-      {/*회원 추가*/}
+      {/*제품 추가*/}
       <Box px={{xs: 4, md: 5}} pt={{xs: 4, md: 5}} pb={{xs: 2, xl: 5}}>
         <AppAnimate>
           <Button
@@ -85,13 +85,13 @@ const SideBarContent: React.FC<{}> = () => {
                 <AppsSideBarFolderItem
                   key={item.id}
                   item={item}
-                  path={`/user/userList/folder/${item.alias}`}
+                  path={`/product/folder/${item.alias}`}
                 />
               )}
             />
           </List>
           {isAddContact ? (
-            <CreateContact
+            <CreateProduct
               isAddContact={isAddContact}
               handleAddContactClose={handleAddContactClose}
             />

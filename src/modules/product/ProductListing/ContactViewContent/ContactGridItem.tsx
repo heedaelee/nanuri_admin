@@ -11,7 +11,7 @@ import {blue, grey} from '@material-ui/core/colors';
 import {Fonts} from '../../../../shared/constants/AppEnums';
 import clsx from 'clsx';
 import {CremaTheme} from '../../../../types/AppContextPropsType';
-import {UserListObj} from '../../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles((theme: CremaTheme) => ({
   gridCard: {
@@ -43,13 +43,13 @@ const useStyles = makeStyles((theme: CremaTheme) => ({
 }));
 
 interface ContactGridItemProps {
-  contact: UserListObj;
-  onChangeStarred: (isStarred: boolean, contact: UserListObj) => void;
-  onChangeCheckedContacts: (event: any, id: number) => void;
-  checkedContacts: number[];
-  onSelectContactsForDelete: (contactIds: number[]) => void;
-  onOpenEditContact: (contact: UserListObj) => void;
-  onViewContactDetail: (contact: UserListObj) => void;
+  contact: ProductListObj;
+  onChangeStarred: (isStarred: boolean, contact: ProductListObj) => void;
+  onChangeCheckedContacts: (event: any, id: string) => void;
+  checkedContacts: string[];
+  onSelectContactsForDelete: (contactIds: string[]) => void;
+  onOpenEditContact: (contact: ProductListObj) => void;
+  onViewContactDetail: (contact: ProductListObj) => void;
 
   [x: string]: any;
 }
@@ -79,18 +79,18 @@ const ContactGridItem: React.FC<ContactGridItemProps> = ({
           />
         </Box>
 
-        {contact.image ? (
+        {/* {contact.image ? (
           <Avatar className={classes.avatar} src={contact.image} />
         ) : (
           <Avatar className={classes.avatar}>
             {contact.name[0].toUpperCase()}
           </Avatar>
-        )}
+        )} */}
 
         <Box component='span' onClick={(event) => event.stopPropagation()}>
           <ItemMenu
             onSelectContactsForDelete={onSelectContactsForDelete}
-            contact={contact}
+            product={contact}
             onChangeStarred={onChangeStarred}
             onOpenEditContact={onOpenEditContact}
           />
@@ -99,10 +99,10 @@ const ContactGridItem: React.FC<ContactGridItemProps> = ({
 
       <Box mb={{xs: 3, lg: 4, xl: 5}} textAlign='center'>
         <Box fontWeight={Fonts.MEDIUM} fontSize={14}>
-          {contact.name}
+          {contact.productName}
         </Box>
         <Box fontSize={14} className={classes.truncate}>
-          {contact.email ? contact.email : null}
+          {contact.totalPplCnt ? contact.totalPplCnt : null}
         </Box>
       </Box>
 
@@ -124,7 +124,7 @@ const ContactGridItem: React.FC<ContactGridItemProps> = ({
           borderLeft={{xl: `1px solid ${grey[200]}`}}>
           <PhoneIcon className={classes.textBase} />
           <Box ml={2} className={classes.truncate}>
-            {contact.contact}
+            {contact.deliveryMethod}
           </Box>
         </Box>
       </Box>

@@ -5,7 +5,7 @@ import Menu from '@material-ui/core/Menu';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Tooltip from '@material-ui/core/Tooltip';
 import {makeStyles} from '@material-ui/core/styles';
-import {UserListObj} from '../../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles(() => ({
   pointer: {
@@ -14,15 +14,15 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface ItemMenuProps {
-  onSelectContactsForDelete: (ids: number[]) => void;
-  contact: UserListObj;
-  onChangeStarred: (isStarred: boolean, contact: UserListObj) => void;
-  onOpenEditContact: (contact: UserListObj) => void;
+  onSelectContactsForDelete: (ids: string[]) => void;
+  product: ProductListObj;
+  onChangeStarred: (isStarred: boolean, product: ProductListObj) => void;
+  onOpenEditContact: (product: ProductListObj) => void;
 }
 
 const ItemMenu: React.FC<ItemMenuProps> = ({
   onSelectContactsForDelete,
-  contact,
+  product: product,
   onChangeStarred,
   onOpenEditContact,
 }) => {
@@ -37,17 +37,17 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
   };
 
   const onDeleteContact = () => {
-    onSelectContactsForDelete([contact.id]);
+    onSelectContactsForDelete([product.id]);
     onViewMoreClose();
   };
 
   const onChangeStarredStatus = () => {
-    onChangeStarred(!contact.isStarred, contact);
+    onChangeStarred(!product.isStarred, product);
     onViewMoreClose();
   };
 
   const onClickEditOption = () => {
-    onOpenEditContact(contact);
+    onOpenEditContact(product);
     onViewMoreClose();
   };
 
@@ -63,7 +63,7 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
         open={Boolean(isMoreIcon)}
         onClose={onViewMoreClose}>
         <MenuItem onClick={onChangeStarredStatus}>
-          {contact.isStarred ? (
+          {product.isStarred ? (
             <IntlMessages id='common.unstarred' />
           ) : (
             <IntlMessages id='common.starred' />

@@ -5,14 +5,14 @@ import * as yup from 'yup';
 import {useDispatch} from 'react-redux';
 import {Scrollbar} from '../../../@crema';
 import {
-  onCreateContact,
-  onUpdateSelectedContact,
-} from '../../../redux/actions/UserList';
+  onCreateProduct,
+  onUpdateSelectedProduct,
+} from '../../../redux/actions/ProductList';
 import Slide from '@material-ui/core/Slide';
 import AddContactForm from './AddContactForm';
 import {Fonts} from '../../../shared/constants/AppEnums';
 import {makeStyles} from '@material-ui/core/styles/index';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 import {TransitionProps} from '@material-ui/core/transitions';
 import {useIntl} from 'react-intl';
 
@@ -39,8 +39,8 @@ const Transition = React.forwardRef(function Transition(
 interface CreateContactProps {
   isAddContact: boolean;
   handleAddContactClose: () => void;
-  selectContact?: UserListObj | null;
-  onUpdateContact?: (newContact: UserListObj) => void;
+  selectContact?: ProductListObj | null;
+  onUpdateContact?: (newContact: ProductListObj) => void;
 }
 
 const CreateContact: React.FC<CreateContactProps> = ({
@@ -51,11 +51,11 @@ const CreateContact: React.FC<CreateContactProps> = ({
 }) => {
   const dispatch = useDispatch();
 
-  const [userImage, setUserImage] = useState<string>(
-    selectContact && selectContact.image
-      ? selectContact.image
-      : '/assets/images/placeholder.jpg',
-  );
+  // const [userImageUrl, setUserImageUrl] = useState<string>(
+  //   selectContact && selectContact.img?.length
+  //     ? selectContact.img[0].url
+  //     : '/assets/images/placeholder.jpg',
+  // );
 
   const classes = useStyles();
   const {messages} = useIntl();
@@ -82,27 +82,21 @@ const CreateContact: React.FC<CreateContactProps> = ({
         <Formik
           validateOnChange={true}
           initialValues={{
-            name: selectContact ? selectContact.name : '',
-            email: selectContact ? selectContact.email : '',
-            contact: selectContact ? selectContact.contact : '',
-            birthday:
-              selectContact && selectContact.birthday
-                ? selectContact.birthday
-                : null,
-            address:
-              selectContact && selectContact.address
-                ? selectContact.address
-                : '',
-            appleId:
-              selectContact && selectContact.appleId
-                ? selectContact.appleId
-                : '',
-            kakaoId:
-              selectContact && selectContact.kakaoId
-                ? selectContact.kakaoId
-                : '',
-            notes:
-              selectContact && selectContact.notes ? selectContact.notes : '',
+            productName: selectContact ? selectContact.productName : '',
+            link: selectContact ? selectContact.link : '',
+            productPrice: selectContact ? selectContact.productPrice : '',
+            totalPplCnt: selectContact ? selectContact.totalPplCnt : '',
+            startPeriod: selectContact ? selectContact.startPeriod : '',
+            endPeriod: selectContact ? selectContact.endPeriod : '',
+            deliveryMethod: selectContact
+              ? selectContact.deliveryMethod
+              : '배송',
+            detailContent: selectContact ? selectContact.detailContent : '',
+            img: selectContact
+              ? selectContact.img
+                ? selectContact.img
+                : []
+              : [],
           }}
           validationSchema={validationSchema}
           onSubmit={(data, {setSubmitting, resetForm}) => {
@@ -111,20 +105,19 @@ const CreateContact: React.FC<CreateContactProps> = ({
               const newContact = {
                 id: selectContact.id,
                 isStarred: selectContact.isStarred,
-                image: userImage,
+                // img:selectContact.img
                 ...data,
               };
-              dispatch(onUpdateSelectedContact(newContact as UserListObj));
-              onUpdateContact!(newContact as UserListObj);
+              dispatch(onUpdateSelectedProduct(newContact as ProductListObj));
+              onUpdateContact!(newContact as ProductListObj);
             } else {
               const newContact = {
-                id: Math.floor(Math.random() * 1000),
+                id: String(Math.floor(Math.random() * 1000)),
                 isStarred: false,
-                isFrequent: Math.random() > 0.5,
-                image: userImage,
+                // image: userImageUrl,
                 ...data,
               };
-              dispatch(onCreateContact(newContact as UserListObj));
+              dispatch(onCreateProduct(newContact as ProductListObj));
             }
             handleAddContactClose();
             resetForm();
@@ -132,9 +125,9 @@ const CreateContact: React.FC<CreateContactProps> = ({
           }}>
           {({values, setFieldValue}) => (
             <AddContactForm
-              setUserImage={setUserImage}
-              userImage={userImage}
-              values={values as UserListObj}
+              // setUserImage={setUserImageUrl}
+              // userImage={userImageUrl}
+              values={values as ProductListObj}
               setFieldValue={setFieldValue}
               handleAddContactClose={handleAddContactClose}
             />

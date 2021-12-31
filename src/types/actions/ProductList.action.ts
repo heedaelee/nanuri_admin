@@ -1,53 +1,53 @@
-import {UserListObj, FolderObj} from '../models/apps/UserList';
+import {ProductListObj, FolderObj} from '../models/apps/ProductList';
 
 // action strings
-export const CREATE_NEW_CONTACT = 'CREATE_NEW_CONTACT';
-export const DELETE_CONTACT = 'DELETE_CONTACT';
-export const GET_CONTACT_FOLDER_LIST = 'GET_CONTACT_FOLDER_LIST';
-export const GET_CONTACT_LIST = 'GET_CONTACT_LIST';
-export const UPDATE_CONTACT_STARRED_STATUS = 'UPDATE_CONTACT_STARRED_STATUS';
-export const UPDATE_CONTACT_DETAIL = 'UPDATE_CONTACT_DETAIL';
-export const TOGGLE_CONTACT_DRAWER = 'TOGGLE_CONTACT_DRAWER';
+export const CREATE_NEW_PRODUCT = 'CREATE_NEW_PRODUCT';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const GET_PRODUCT_FOLDER_LIST = 'GET_PRODUCT_FOLDER_LIST';
+export const GET_PRODUCT_LIST = 'GET_PRODUCT_LIST';
+export const UPDATE_PRODUCT_STARRED_STATUS = 'UPDATE_PRODUCT_STARRED_STATUS';
+export const UPDATE_PRODUCT_DETAIL = 'UPDATE_PRODUCT_DETAIL';
+export const TOGGLE_PRODUCT_DRAWER = 'TOGGLE_PRODUCT_DRAWER';
 
-export interface CreateContactActions {
-  type: typeof CREATE_NEW_CONTACT;
-  payload: UserListObj;
+export interface CreateProductActions {
+  type: typeof CREATE_NEW_PRODUCT;
+  payload: ProductListObj;
 }
 
-export interface DeleteContactActions {
-  type: typeof DELETE_CONTACT;
-  payload: {list: UserListObj[]; total: number};
+export interface DeleteProductActions {
+  type: typeof DELETE_PRODUCT;
+  payload: {list: ProductListObj[]; total: number};
 }
 
-export interface GetContactFolderActions {
-  type: typeof GET_CONTACT_FOLDER_LIST;
+export interface GetProductFolderActions {
+  type: typeof GET_PRODUCT_FOLDER_LIST;
   payload: FolderObj[];
 }
 
-export interface GetContactsActions {
-  type: typeof GET_CONTACT_LIST;
-  payload: {list: UserListObj[]; total: number};
+export interface GetProductsActions {
+  type: typeof GET_PRODUCT_LIST;
+  payload: {list: ProductListObj[]; total: number};
 }
 
-export interface ToggleContactDrawerActions {
-  type: typeof TOGGLE_CONTACT_DRAWER;
+export interface ToggleProductDrawerActions {
+  type: typeof TOGGLE_PRODUCT_DRAWER;
 }
 
-export interface UpdateContactActions {
-  type: typeof UPDATE_CONTACT_DETAIL;
-  payload: UserListObj;
+export interface UpdateProductActions {
+  type: typeof UPDATE_PRODUCT_DETAIL;
+  payload: ProductListObj;
 }
 
-export interface UpdateContactStarActions {
-  type: typeof UPDATE_CONTACT_STARRED_STATUS;
-  payload: {data: UserListObj[]; folderName: string};
+export interface UpdateProductStarActions {
+  type: typeof UPDATE_PRODUCT_STARRED_STATUS;
+  payload: {data: ProductListObj[]; folderName: string};
 }
 
-export type UserListActionTypes =
-  | CreateContactActions
-  | DeleteContactActions
-  | GetContactFolderActions
-  | GetContactsActions
-  | ToggleContactDrawerActions
-  | UpdateContactActions
-  | UpdateContactStarActions;
+export type ProductListActionTypes =
+  | CreateProductActions
+  | DeleteProductActions
+  | GetProductFolderActions
+  | GetProductsActions
+  | ToggleProductDrawerActions
+  | UpdateProductActions
+  | UpdateProductStarActions;

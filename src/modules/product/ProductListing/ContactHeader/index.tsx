@@ -9,7 +9,7 @@ import ContactCheckedActions from './ContactCheckedActions';
 import ViewSelectButtons from './ViewSelectButtons';
 import AppsPagination from '../../../../@crema/core/AppsPagination';
 import {AppState} from '../../../../redux/store';
-import {UserListObj} from '../../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles(() => ({
   appsPaginationRoot: {
@@ -19,12 +19,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface ContactHeaderProps {
-  checkedContacts: number[];
-  setCheckedContacts: (checkedContacts: number[]) => void;
+  checkedContacts: string[];
+  setCheckedContacts: (checkedContacts: string[]) => void;
   filterText: string;
   onSetFilterText: (filterText: string) => void;
   onChangePageView: (pageView: string) => void;
-  onSelectContactsForDelete: (ids: number[]) => void;
+  onSelectContactsForDelete: (ids: string[]) => void;
   page: number;
   onPageChange: (
     event: React.MouseEvent<HTMLButtonElement> | null,
@@ -47,10 +47,10 @@ const ContactHeader: React.FC<ContactHeaderProps> = ({
   const {
     contactList,
     totalContacts,
-  }: {contactList: UserListObj[]; totalContacts: number} = useSelector<
+  }: {contactList: ProductListObj[]; totalContacts: number} = useSelector<
     AppState,
-    AppState['userList']
-  >(({userList}) => userList);
+    AppState['productList']
+  >(({productList}) => productList);
 
   const classes = useStyles();
 

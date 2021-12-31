@@ -8,7 +8,7 @@ import CakeIcon from '@material-ui/icons/Cake';
 import {makeStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
 import {Fonts} from '../../../shared/constants/AppEnums';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles(() => ({
   borderBottomClass: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface PersonalDetailsProps {
-  contact: UserListObj;
+  contact: ProductListObj;
 }
 
 const PersonalDetails: React.FC<PersonalDetailsProps> = ({contact}) => {
@@ -40,17 +40,16 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({contact}) => {
           {' '}
           <EmailIcon className={classes.iconRoot} />{' '}
           <Box ml={2} fontSize={14} color='text.secondary'>
-            {contact.email}
+            {contact.productPrice}
           </Box>
         </Box>
 
         <Box mb={2} display='flex' alignItems='center'>
           <PhoneIcon className={classes.iconRoot} />
           <Box ml={2} color='text.secondary' fontSize={14}>
-            {contact.contact}
+            {contact.startPeriod}
           </Box>
         </Box>
-
       </Box>
     </Box>
   );

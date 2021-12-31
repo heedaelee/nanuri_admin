@@ -12,7 +12,7 @@ import Scrollbar from '../../../@crema/core/Scrollbar';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
 import {Fonts} from '../../../shared/constants/AppEnums';
 import {CremaTheme} from '../../../types/AppContextPropsType';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles((theme: CremaTheme) => ({
   avatar: {
@@ -59,16 +59,16 @@ const MyTextField = (props: any) => {
 };
 
 interface AddContactFormProps {
-  values: UserListObj;
-  userImage: string;
-  setUserImage: (image: string) => void;
+  values: ProductListObj;
+  // userImage: string;
+  setUserImage?: (image: string) => void;
   setFieldValue: (name: string, value: any) => void;
   handleAddContactClose: () => void;
 }
 
 const AddContactForm: React.FC<AddContactFormProps> = ({
   values,
-  userImage,
+  // userImage,
 
   setUserImage,
   setFieldValue,
@@ -77,7 +77,7 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
   const {getRootProps, getInputProps} = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
-      setUserImage(URL.createObjectURL(acceptedFiles[0]));
+      // setUserImage(URL.createObjectURL(acceptedFiles[0]));
     },
   });
 
@@ -96,11 +96,11 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
         <Box {...getRootProps({className: 'dropzone'})}>
           <input {...getInputProps()} />
           <label htmlFor='icon-button-file'>
-            <Avatar className={classes.avatar} src={userImage} />
+            {/* <Avatar className={classes.avatar} src={userImage} /> */}
           </label>
         </Box>
         <Box component='h4' fontWeight={Fonts.MEDIUM}>
-          {values.name}
+          {values.productName}
         </Box>
       </Box>
 
@@ -138,18 +138,6 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
                 variant='outlined'
                 label={<IntlMessages id='common.phone' />}
                 name='contact'
-              />
-
-              <KeyboardDatePicker
-                autoOk
-                disableFuture
-                className={classes.myTextField}
-                format='MM/DD/YYYY'
-                inputVariant='outlined'
-                label={<IntlMessages id='common.birthday' />}
-                name='birthday'
-                value={values.birthday}
-                onChange={(value) => setFieldValue('birthday', value)}
               />
             </Box>
           </Box>

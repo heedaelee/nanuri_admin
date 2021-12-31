@@ -1,12 +1,12 @@
 import {
-  UserListActionTypes,
-  CREATE_NEW_CONTACT,
-  DELETE_CONTACT,
-  GET_CONTACT_FOLDER_LIST,
-  GET_CONTACT_LIST,
-  TOGGLE_CONTACT_DRAWER,
-  UPDATE_CONTACT_DETAIL,
-  UPDATE_CONTACT_STARRED_STATUS,
+  ProductListActionTypes,
+  CREATE_NEW_PRODUCT,
+  DELETE_PRODUCT,
+  GET_PRODUCT_FOLDER_LIST,
+  GET_PRODUCT_LIST,
+  TOGGLE_PRODUCT_DRAWER,
+  UPDATE_PRODUCT_DETAIL,
+  UPDATE_PRODUCT_STARRED_STATUS,
 } from '../../types/actions/ProductList.action';
 
 import {ProductListObj, FolderObj} from '../../types/models/apps/ProductList';
@@ -25,35 +25,38 @@ const initialState: {
   selectedContact: null,
 };
 
-const contactReducer = (state = initialState, action: UserListActionTypes) => {
+const contactReducer = (
+  state = initialState,
+  action: ProductListActionTypes,
+) => {
   switch (action.type) {
-    case GET_CONTACT_LIST:
+    case GET_PRODUCT_LIST:
       return {
         ...state,
         contactList: action.payload.list,
         totalContacts: action.payload.total,
       };
 
-    case GET_CONTACT_FOLDER_LIST:
+    case GET_PRODUCT_FOLDER_LIST:
       return {
         ...state,
         folderList: action.payload,
       };
 
-    case TOGGLE_CONTACT_DRAWER:
+    case TOGGLE_PRODUCT_DRAWER:
       return {
         ...state,
         contactDrawer: !state.contactDrawer,
       };
 
-    case CREATE_NEW_CONTACT:
+    case CREATE_NEW_PRODUCT:
       return {
         ...state,
         contactList: [action.payload, ...state.contactList],
         totalContacts: state.totalContacts + 1,
       };
 
-    case DELETE_CONTACT: {
+    case DELETE_PRODUCT: {
       return {
         ...state,
         contactList: action.payload.list,
@@ -61,7 +64,7 @@ const contactReducer = (state = initialState, action: UserListActionTypes) => {
       };
     }
 
-    case UPDATE_CONTACT_STARRED_STATUS: {
+    case UPDATE_PRODUCT_STARRED_STATUS: {
       let contactIds = action.payload.data.map((contact) => contact.id);
       const updatedList = state.contactList.map((contact) => {
         if (contactIds.includes(contact.id)) {
@@ -87,7 +90,7 @@ const contactReducer = (state = initialState, action: UserListActionTypes) => {
       };
     }
 
-    case UPDATE_CONTACT_DETAIL:
+    case UPDATE_PRODUCT_DETAIL:
       return {
         ...state,
         selectedContact: action.payload,

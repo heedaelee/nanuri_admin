@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {onUpdateSelectedContact} from '../../../redux/actions/UserList';
+import {onUpdateSelectedProduct} from '../../../redux/actions/ProductList';
 import Avatar from '@material-ui/core/Avatar';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
@@ -14,7 +14,7 @@ import Notes from './Notes';
 import {makeStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
 import {Fonts} from '../../../shared/constants/AppEnums';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 import {TransitionProps} from '@material-ui/core/transitions';
 
 const useStyles = makeStyles(() => ({
@@ -49,10 +49,10 @@ const Transition = React.forwardRef(function Transition(
 
 interface ContactDetailProps {
   isShowDetail: boolean;
-  selectedContact: UserListObj | null;
+  selectedContact: ProductListObj | null;
   onShowDetail: (show: boolean) => void;
-  onSelectContactsForDelete: (ids: number[]) => void;
-  onOpenEditContact: (contact: UserListObj) => void;
+  onSelectContactsForDelete: (ids: string[]) => void;
+  onOpenEditContact: (contact: ProductListObj) => void;
 }
 
 const ContactDetail: React.FC<ContactDetailProps> = ({
@@ -64,7 +64,9 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
 }) => {
   const dispatch = useDispatch();
 
-  const [contact, setContact] = useState<UserListObj | null>(selectedContact);
+  const [contact, setContact] = useState<ProductListObj | null>(
+    selectedContact,
+  );
 
   useEffect(() => {
     setContact(selectedContact);
@@ -74,7 +76,7 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
     const updatedContact = contact;
     contact!.isStarred = checked;
     setContact(updatedContact);
-    dispatch(onUpdateSelectedContact(contact!));
+    dispatch(onUpdateSelectedProduct(contact!));
   };
 
   const onDeleteContact = () => {
@@ -106,15 +108,15 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
               display='flex'
               flexDirection='column'
               alignItems='center'>
-              {contact!.image ? (
+              {/* {contact!.image ? (
                 <Avatar className={classes.avatar} src={contact!.image} />
               ) : (
                 <Avatar className={classes.avatar}>
                   {contact!.name[0].toUpperCase()}
                 </Avatar>
-              )}
+              )} */}
               <Box component='h4' fontWeight={Fonts.MEDIUM}>
-                {contact!.name}
+                {contact!.productName}
               </Box>
             </Box>
           </Box>
@@ -123,7 +125,7 @@ const ContactDetail: React.FC<ContactDetailProps> = ({
             <Scrollbar style={{maxHeight: 400}}>
               {contact ? <PersonalDetails contact={contact} /> : null}
               {/* {contact ? <OtherDetails contact={contact} /> : null} */}
-              {contact ? <SocialMedia contact={contact} /> : null}
+              {/* {contact ? <SocialMedia contact={contact} /> : null} */}
               {contact ? <Notes contact={contact} /> : null}
             </Scrollbar>
           </Box>

@@ -1,4 +1,4 @@
-import {FolderObj} from '../../../../../types/models/apps/UserList';
+import {FolderObj} from '../../../types/models/apps/UserList';
 
 const folderList: FolderObj[] = [
   {id: 121, name: '모두', alias: 'all', icon: 'group'},

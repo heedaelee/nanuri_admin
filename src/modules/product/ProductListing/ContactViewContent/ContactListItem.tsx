@@ -9,22 +9,22 @@ import AppsStarredIcon from '../../../../@crema/core/AppsStarredIcon';
 import {makeStyles} from '@material-ui/core/styles';
 import {blue, grey} from '@material-ui/core/colors';
 import {Fonts} from '../../../../shared/constants/AppEnums';
-import {UserListObj} from '../../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../../types/models/apps/ProductList';
 
 interface ContactListItemProps {
-  contact: UserListObj;
-  onChangeStarred: (isStarred: boolean, contact: UserListObj) => void;
-  onChangeCheckedContacts: (event: any, id: number) => void;
-  checkedContacts: number[];
-  onSelectContactsForDelete: (contactIds: number[]) => void;
-  onOpenEditContact: (contact: UserListObj) => void;
-  onViewContactDetail: (contact: UserListObj) => void;
+  product: ProductListObj;
+  onChangeStarred: (isStarred: boolean, product: ProductListObj) => void;
+  onChangeCheckedContacts: (event: any, id: string) => void;
+  checkedContacts: string[];
+  onSelectContactsForDelete: (contactIds: string[]) => void;
+  onOpenEditContact: (product: ProductListObj) => void;
+  onViewContactDetail: (product: ProductListObj) => void;
 
   [x: string]: any;
 }
 
 const ContactListItem: React.FC<ContactListItemProps> = ({
-  contact,
+  product: product,
   onChangeCheckedContacts,
   checkedContacts,
   onChangeStarred,
@@ -65,29 +65,29 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
       <ListItem
         dense
         button
-        key={contact.id}
+        key={product.id}
         className={clsx(classes.root, 'item-hover', {
-          rootCheck: checkedContacts.includes(contact.id),
+          rootCheck: checkedContacts.includes(product.id),
         })}
-        onClick={() => onViewContactDetail(contact)}>
+        onClick={() => onViewContactDetail(product)}>
         <Box
           mr={{xs: 2, sm: 4}}
           component='span'
           onClick={(event) => event.stopPropagation()}>
           <Checkbox
-            checked={checkedContacts.includes(contact.id)}
-            onChange={(event) => onChangeCheckedContacts(event, contact.id)}
+            checked={checkedContacts.includes(product.id)}
+            onChange={(event) => onChangeCheckedContacts(event, product.id)}
             color='primary'
           />
         </Box>
         <Box mr={3} component='span'>
-          {contact.image ? (
-            <Avatar src={contact.image} />
+          {/* {product.image ? (
+            <Avatar src={product.image} />
           ) : (
             <Avatar className={classes.avatar}>
-              {contact.name[0].toUpperCase()}
+              {product.name[0].toUpperCase()}
             </Avatar>
-          )}
+          )} */}
         </Box>
         <Box
           mr={4}
@@ -95,7 +95,7 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
           component='span'
           flex={1}
           className={classes.truncate}>
-          {contact.name}
+          {product.productName}
         </Box>
 
         <Box
@@ -105,7 +105,7 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
           display={{xs: 'none', sm: 'block'}}
           className={classes.truncate}>
           <Box component='span' className={classes.truncate}>
-            {contact.email ? contact.email : null}
+            {product.productPrice ? product.productPrice : null}
           </Box>
         </Box>
         <Box
@@ -114,7 +114,7 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
           flex={1}
           display={{xs: 'none', md: 'block'}}>
           <Box component='span' className={classes.truncate}>
-            {contact.contact}
+            {product.productName}
           </Box>
         </Box>
 
@@ -125,7 +125,7 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
           display='flex'
           alignItems='center'>
           <Box component='span' onClick={(event) => event.stopPropagation()}>
-            <AppsStarredIcon item={contact} onChange={onChangeStarred} />
+            <AppsStarredIcon item={product} onChange={onChangeStarred} />
           </Box>
 
           <Box
@@ -134,7 +134,7 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
             onClick={(event) => event.stopPropagation()}>
             <ItemMenu
               onSelectContactsForDelete={onSelectContactsForDelete}
-              contact={contact}
+              product={product}
               onChangeStarred={onChangeStarred}
               onOpenEditContact={onOpenEditContact}
             />

@@ -18,9 +18,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface ContactCheckedActionsProps {
-  checkedContacts: number[];
-  setCheckedContacts: (checkedContacts: number[]) => void;
-  onSelectContactsForDelete: (checkedContacts: number[]) => void;
+  checkedContacts: string[];
+  setCheckedContacts: (checkedContacts: string[]) => void;
+  onSelectContactsForDelete: (checkedContacts: string[]) => void;
 }
 
 const ContactCheckedActions: React.FC<ContactCheckedActionsProps> = ({

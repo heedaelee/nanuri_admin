@@ -6,10 +6,10 @@ import HomeIcon from '@material-ui/icons/Home';
 import {makeStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
 import {Fonts} from '../../../shared/constants/AppEnums';
-import {UserListObj} from '../../../types/models/apps/UserList';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 
 interface OtherDetailsProps {
-  contact: UserListObj;
+  contact: ProductListObj;
 }
 
 const useStyles = makeStyles((s) => ({
@@ -37,8 +37,8 @@ const OtherDetails: React.FC<OtherDetailsProps> = ({contact}) => {
         <Box display='flex' alignItems='center'>
           <HomeIcon className={classes.businessIconRoot} />
           <Box ml={2} color='text.secondary' fontSize={14}>
-            {contact!.address ? (
-              contact!.address
+            {contact!.category ? (
+              contact!.category
             ) : (
               <IntlMessages id='common.na' />
             )}
