@@ -4,11 +4,10 @@ export interface UserListObj {
   email: string;
   contact: string;
   isStarred: boolean;
-  isFrequent: boolean;
   image: string;
   address?: string;
-  facebookId?: string;
-  twitterId?: string;
+  appleId?: string;
+  kakaoId?: string;
   notes?: string;
   birthday?: string;
 }

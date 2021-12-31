@@ -1,6 +1,6 @@
 import UserListData from '../../db/apps/userList/userList';
 import mock from '../../MockConfig';
-import folderList from '../../db/apps/userList/folderList';
+import folderList from '../../db/folderList';
 
 import {AxiosRequestConfig} from 'axios';
 import {UserListObj} from '../../../../types/models/apps/UserList';
@@ -14,13 +14,9 @@ mock
   .reply((config: AxiosRequestConfig) => {
     const params = config.params;
     let folderContactList: UserListObj[];
-    
-    
 
     if (params.name === 'starred') {
       folderContactList = userList.filter((contact) => contact.isStarred);
-    } else if (params.name === 'frequent') {
-      folderContactList = userList.filter((contact) => contact.isFrequent);
     } else {
       folderContactList = userList;
     }
@@ -61,9 +57,6 @@ mock
     if (name === 'starred') {
       userList = userList.filter((contact) => !contactIds.includes(contact.id));
       folderContactList = userList.filter((contact) => contact.isStarred);
-    } else if (name === 'frequent') {
-      userList = userList.filter((contact) => !contactIds.includes(contact.id));
-      folderContactList = userList.filter((contact) => contact.isFrequent);
     } else {
       userList = userList.filter((contact) => !contactIds.includes(contact.id));
       folderContactList = userList;
