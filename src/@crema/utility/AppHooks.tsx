@@ -1,13 +1,11 @@
-import {useDispatch, useSelector} from 'react-redux';
-import {useEffect, useState} from 'react';
-import {fetchStart, fetchSuccess, setJWTToken} from '../../redux/actions';
-import {AuthType} from '../../shared/constants/AppEnums';
-import {defaultUser} from '../../shared/constants/AppConst';
-import jwtAxios from '../services/auth/jwt-auth/jwt-api';
-import {AppState} from '../../redux/store';
-import {UPDATE_AUTH_USER} from '../../types/actions/Auth.actions';
-import {AuthUser} from '../../types/models/AuthUser';
-import {auth as firebaseAuth} from '../services/auth/firebase/firebase';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../redux/store';
+import { defaultUser } from '../../shared/constants/AppConst';
+import { AuthType } from '../../shared/constants/AppEnums';
+import { UPDATE_AUTH_USER } from '../../types/actions/Auth.actions';
+import { AuthUser } from '../../types/models/AuthUser';
+import { auth as firebaseAuth } from '../services/auth/firebase/firebase';
 
 export const useAuthToken = (): [boolean, AuthUser | null] => {
   const dispatch = useDispatch();
@@ -15,36 +13,36 @@ export const useAuthToken = (): [boolean, AuthUser | null] => {
   const {user} = useSelector<AppState, AppState['auth']>(({auth}) => auth);
 
   useEffect(() => {
-    const validateAuth = async () => {
-      console.log('validateAuth호출');
+    // const validateAuth = async () => {
+    //   console.log('validateAuth호출');
       
-      dispatch(fetchStart());
-      const token = localStorage.getItem('token');
-      if (!token) {
-        dispatch(fetchSuccess());
-        return;
-      }
-      dispatch(setJWTToken(token));
-      try {
-        const res = await jwtAxios.get('/auth');
-        dispatch(fetchSuccess());
-        dispatch({
-          type: UPDATE_AUTH_USER,
-          payload: {
-            authType: AuthType.JWT_AUTH,
-            displayName: res.data.name,
-            email: res.data.email,
-            role: defaultUser.role,
-            token: res.data._id,
-            photoURL: res.data.avatar,
-          },
-        });
-        return;
-      } catch (err) {
-        dispatch(fetchSuccess());
-        return;
-      }
-    };
+    //   dispatch(fetchStart());
+    //   const token = localStorage.getItem('token');
+    //   if (!token) {
+    //     dispatch(fetchSuccess());
+    //     return;
+    //   }
+    //   dispatch(setJWTToken(token));
+    //   try {
+    //     const res = await jwtAxios.get('/auth');
+    //     dispatch(fetchSuccess());
+    //     dispatch({
+    //       type: UPDATE_AUTH_USER,
+    //       payload: {
+    //         authType: AuthType.JWT_AUTH,
+    //         displayName: res.data.name,
+    //         email: res.data.email,
+    //         role: defaultUser.role,
+    //         token: res.data._id,
+    //         photoURL: res.data.avatar,
+    //       },
+    //     });
+    //     return;
+    //   } catch (err) {
+    //     dispatch(fetchSuccess());
+    //     return;
+    //   }
+    // };
 
     const firebaseCheck = () =>
       new Promise<void>((resolve) => {

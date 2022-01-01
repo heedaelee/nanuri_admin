@@ -1,18 +1,16 @@
-import {Box, Button} from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar';
-import {grey} from '@material-ui/core/colors';
-import {makeStyles} from '@material-ui/core/styles';
+import { Box, Button } from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import {KeyboardDatePicker} from '@material-ui/pickers';
-import {Form, useField} from 'formik';
+import { Form, useField } from 'formik';
 import React from 'react';
-import {useDropzone} from 'react-dropzone';
-import {useIntl} from 'react-intl';
+import { useDropzone } from 'react-dropzone';
+import { useIntl } from 'react-intl';
 import Scrollbar from '../../../@crema/core/Scrollbar';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
-import {Fonts} from '../../../shared/constants/AppEnums';
-import {CremaTheme} from '../../../types/AppContextPropsType';
-import {ProductListObj} from '../../../types/models/apps/ProductList';
+import { Fonts } from '../../../shared/constants/AppEnums';
+import { CremaTheme } from '../../../types/AppContextPropsType';
+import { ProductListObj } from '../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles((theme: CremaTheme) => ({
   avatar: {

@@ -20,7 +20,7 @@ const firebaseConfig = {
 // Initialize Firebase
 console.log('파이어베이스 콜');
 const fireBase = initializeApp(firebaseConfig);
-const analytics = getAnalytics(fireBase);
+getAnalytics(fireBase);
 
 const auth = getAuth();
 

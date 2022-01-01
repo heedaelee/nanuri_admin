@@ -1,9 +1,9 @@
+import { AxiosRequestConfig } from 'axios';
+import { UserListObj } from '../../../../types/models/apps/UserList';
 import UserListData from '../../db/apps/userList/userList';
-import mock from '../../MockConfig';
 import folderList from '../../db/folderList';
+import mock from '../../MockConfig';
 
-import {AxiosRequestConfig} from 'axios';
-import {UserListObj} from '../../../../types/models/apps/UserList';
 
 let userList = UserListData;
 
@@ -51,7 +51,7 @@ mock
 mock
   .onPost('/api/contactApp/delete/contact')
   .reply((request: AxiosRequestConfig) => {
-    const {contactIds, type, name, page} = JSON.parse(request.data);
+    const {contactIds, name, page} = JSON.parse(request.data);
     let folderContactList: UserListObj[];
 
     if (name === 'starred') {

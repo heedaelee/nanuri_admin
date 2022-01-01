@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import {Formik} from 'formik';
+import Slide from '@material-ui/core/Slide';
+import { makeStyles } from '@material-ui/core/styles/index';
+import { TransitionProps } from '@material-ui/core/transitions';
+import { Formik } from 'formik';
+import React from 'react';
+import { useIntl } from 'react-intl';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
-import {useDispatch} from 'react-redux';
-import {Scrollbar} from '../../../@crema';
+import { Scrollbar } from '../../../@crema';
 import {
   onCreateProduct,
-  onUpdateSelectedProduct,
+  onUpdateSelectedProduct
 } from '../../../redux/actions/ProductList';
-import Slide from '@material-ui/core/Slide';
+import { Fonts } from '../../../shared/constants/AppEnums';
+import { ProductListObj } from '../../../types/models/apps/ProductList';
 import AddContactForm from './AddContactForm';
-import {Fonts} from '../../../shared/constants/AppEnums';
-import {makeStyles} from '@material-ui/core/styles/index';
-import {ProductListObj} from '../../../types/models/apps/ProductList';
-import {TransitionProps} from '@material-ui/core/transitions';
-import {useIntl} from 'react-intl';
 
 const useStyles = makeStyles(() => ({
   dialogBox: {

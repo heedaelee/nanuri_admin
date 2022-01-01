@@ -1,14 +1,10 @@
-import React from 'react';
 import Box from '@material-ui/core/Box';
+import {makeStyles} from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
-import IntlMessages from '../../../../@crema/utility/IntlMessages';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import LabelSharpIcon from '@material-ui/icons/LabelSharp';
-import {useDispatch} from 'react-redux';
-import {useLocation} from 'react-router-dom';
-import {makeStyles} from '@material-ui/core/styles';
+import React from 'react';
+import IntlMessages from '../../../../@crema/utility/IntlMessages';
 
 const useStyles = makeStyles(() => ({
   pointer: {
@@ -25,23 +21,13 @@ interface ContactCheckedActionsProps {
 
 const ContactCheckedActions: React.FC<ContactCheckedActionsProps> = ({
   checkedContacts,
-  setCheckedContacts,
   onSelectContactsForDelete,
 }) => {
-  const dispatch = useDispatch();
-
-  const {pathname} = useLocation();
-
-  const [isLabelOpen, onOpenLabel] = React.useState<null | HTMLElement>(null);
+  const [, onOpenLabel] = React.useState<null | HTMLElement>(null);
 
   const onLabelOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     onOpenLabel(event.currentTarget);
   };
-
-  const onLabelClose = () => {
-    onOpenLabel(null);
-  };
-
 
   const classes = useStyles();
 

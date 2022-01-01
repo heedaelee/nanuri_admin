@@ -1,5 +1,4 @@
-import {blue, green, grey, red} from '@material-ui/core/colors';
-
+// eslint-disable-next-line
 const crmData = {
   // dealsTableData: [
   //   {

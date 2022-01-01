@@ -1,21 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {onUpdateSelectedProduct} from '../../../redux/actions/ProductList';
-import Avatar from '@material-ui/core/Avatar';
+import Box from '@material-ui/core/Box';
+import { grey } from '@material-ui/core/colors';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
-import {Scrollbar} from '../../../@crema';
-import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core/styles';
+import { TransitionProps } from '@material-ui/core/transitions';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Scrollbar } from '../../../@crema';
+import { onUpdateSelectedProduct } from '../../../redux/actions/ProductList';
+import { Fonts } from '../../../shared/constants/AppEnums';
+import { ProductListObj } from '../../../types/models/apps/ProductList';
 import ContactActions from './ContactActions';
-import PersonalDetails from './PersonalDetails';
-import OtherDetails from './OtherDetails';
-import SocialMedia from './SocialMedia';
 import Notes from './Notes';
-import {makeStyles} from '@material-ui/core/styles';
-import {grey} from '@material-ui/core/colors';
-import {Fonts} from '../../../shared/constants/AppEnums';
-import {ProductListObj} from '../../../types/models/apps/ProductList';
-import {TransitionProps} from '@material-ui/core/transitions';
+import PersonalDetails from './PersonalDetails';
 
 const useStyles = makeStyles(() => ({
   dialogBox: {

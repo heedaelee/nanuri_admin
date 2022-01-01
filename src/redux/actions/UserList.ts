@@ -1,23 +1,22 @@
-import {AppActions} from './../../types/index';
-import {Dispatch} from 'redux';
+import { Dispatch } from 'redux';
+import Api from '../../@crema/services/ApiConfig';
+import { appIntl } from '../../@crema/utility/Utils';
 import {
   FETCH_ERROR,
   FETCH_START,
   FETCH_SUCCESS,
-  SHOW_MESSAGE,
+  SHOW_MESSAGE
 } from '../../types/actions/Common.action';
 import {
-  UserListActionTypes,
   CREATE_NEW_CONTACT,
   DELETE_CONTACT,
   GET_CONTACT_FOLDER_LIST,
   GET_CONTACT_LIST,
   TOGGLE_CONTACT_DRAWER,
   UPDATE_CONTACT_DETAIL,
-  UPDATE_CONTACT_STARRED_STATUS,
+  UPDATE_CONTACT_STARRED_STATUS
 } from '../../types/actions/UserList.action';
-import Api from '../../@crema/services/ApiConfig';
-import {appIntl} from '../../@crema/utility/Utils';
+import { AppActions } from './../../types/index';
 
 export const onGetContactList = (
   type: string,

@@ -1,14 +1,12 @@
-import React from 'react';
 import Box from '@material-ui/core/Box';
-import IntlMessages from '../../../@crema/utility/IntlMessages';
+import { grey } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles';
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneIcon from '@material-ui/icons/Phone';
-import LanguageIcon from '@material-ui/icons/Language';
-import CakeIcon from '@material-ui/icons/Cake';
-import {makeStyles} from '@material-ui/core/styles';
-import {grey} from '@material-ui/core/colors';
-import {Fonts} from '../../../shared/constants/AppEnums';
-import {ProductListObj} from '../../../types/models/apps/ProductList';
+import React from 'react';
+import IntlMessages from '../../../@crema/utility/IntlMessages';
+import { Fonts } from '../../../shared/constants/AppEnums';
+import { ProductListObj } from '../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles(() => ({
   borderBottomClass: {

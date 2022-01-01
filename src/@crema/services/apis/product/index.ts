@@ -67,7 +67,7 @@ mock
 mock
   .onPost('/api/product/delete/contact')
   .reply((request: AxiosRequestConfig) => {
-    const {contactIds, type, name, page} = JSON.parse(request.data);
+    const {contactIds,name, page} = JSON.parse(request.data);
     let folderContactList: ProductListObj[];
 
     if (name === 'starred') {

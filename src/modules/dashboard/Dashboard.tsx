@@ -1,15 +1,14 @@
-import React, {useEffect} from 'react';
+import { GridContainer } from '@crema';
+import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { onGetCrmData } from 'redux/actions/Dashboard';
 import AppAnimate from '../../@crema/core/AppAnimate';
-import {GridContainer} from '@crema';
-import {Grid} from '@material-ui/core';
-import {useDispatch, useSelector} from 'react-redux';
-import {onGetCrmData} from 'redux/actions/Dashboard';
 import QuickStats from './QuickStats';
 import Statistics from './Statisitcs';
-import WebTraffic from './WebTraffic';
 import TicketSupport from './TicketSupport';
-import Reviews from './Reviews';
+import WebTraffic from './WebTraffic';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
