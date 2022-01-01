@@ -46,7 +46,6 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
   onViewContactDetail,
 }) => {
   const classes = useStyles();
-  let test = 0;
   // console.log('======================ContactViewContent.tsx');
   // console.log(list);
   // console.log('====================================');

@@ -58,7 +58,7 @@ const SideBarContent: React.FC<{}> = () => {
             color='secondary'
             className={classes.btnRoot}
             onClick={handleAddContactOpen}>
-            <IntlMessages id='contactApp.createContact' />
+            <IntlMessages id='product.createProduct' />
           </Button>
         </AppAnimate>
       </Box>

@@ -1,16 +1,16 @@
-import { Box, Button } from '@material-ui/core';
-import { grey } from '@material-ui/core/colors';
-import { makeStyles } from '@material-ui/core/styles';
+import {Box, Button} from '@material-ui/core';
+import {grey} from '@material-ui/core/colors';
+import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { Form, useField } from 'formik';
+import {Form, useField} from 'formik';
 import React from 'react';
-import { useDropzone } from 'react-dropzone';
-import { useIntl } from 'react-intl';
+import {useDropzone} from 'react-dropzone';
+import {useIntl} from 'react-intl';
 import Scrollbar from '../../../@crema/core/Scrollbar';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
-import { Fonts } from '../../../shared/constants/AppEnums';
-import { CremaTheme } from '../../../types/AppContextPropsType';
-import { ProductListObj } from '../../../types/models/apps/ProductList';
+import {Fonts} from '../../../shared/constants/AppEnums';
+import {CremaTheme} from '../../../types/AppContextPropsType';
+import {ProductListObj} from '../../../types/models/apps/ProductList';
 
 const useStyles = makeStyles((theme: CremaTheme) => ({
   avatar: {
@@ -110,7 +110,7 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
               mb={{xs: 4, xl: 6}}
               fontSize={16}
               fontWeight={Fonts.MEDIUM}>
-              <IntlMessages id='contactApp.personalDetails' />
+              <IntlMessages id='product.productDetails' />
             </Box>
 
             <Box px={{md: 5, lg: 8, xl: 10}}>
@@ -118,7 +118,7 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
                 required={true}
                 className={classes.myTextField}
                 variant='outlined'
-                label={<IntlMessages id='common.name' />}
+                label={<IntlMessages id='product.name' />}
                 name='name'
               />
 
@@ -126,62 +126,43 @@ const AddContactForm: React.FC<AddContactFormProps> = ({
                 required={true}
                 className={classes.myTextField}
                 variant='outlined'
-                label={<IntlMessages id='common.email' />}
+                label={<IntlMessages id='product.link' />}
                 name='email'
               />
-
               <MyTextField
                 required={true}
                 className={classes.myTextField}
                 variant='outlined'
-                label={<IntlMessages id='common.phone' />}
+                label={<IntlMessages id='product.price' />}
                 name='contact'
               />
-            </Box>
-          </Box>
-
-          <Box pb={5} mb={5} borderBottom={`1px solid ${grey[300]}`}>
-            <Box
-              component='h6'
-              mb={{xs: 4, xl: 6}}
-              fontWeight={Fonts.MEDIUM}
-              fontSize={16}>
-              <IntlMessages id='common.otherDetails' />
-            </Box>
-
-            <Box px={{md: 5, lg: 8, xl: 10}}>
               <MyTextField
                 required={true}
-                className={classes.widthFull}
-                variant='outlined'
-                label={<IntlMessages id='common.address' />}
-                name='address'
-              />
-            </Box>
-          </Box>
-
-          <Box pb={5} mb={5} borderBottom={`1px solid ${grey[300]}`}>
-            <Box
-              component='h6'
-              mb={{xs: 4, xl: 6}}
-              fontWeight={Fonts.MEDIUM}
-              fontSize={16}>
-              <IntlMessages id='common.socialMedia' />
-            </Box>
-
-            <Box px={{md: 5, lg: 8, xl: 10}}>
-              <MyTextField
                 className={classes.myTextField}
                 variant='outlined'
-                label={<IntlMessages id='common.facebookId' />}
-                name='facebookId'
+                label={<IntlMessages id='product.ppl' />}
+                name='contact'
               />
-
               <MyTextField
-                className={classes.widthFull}
+                required={true}
+                className={classes.myTextField}
                 variant='outlined'
-                label={<IntlMessages id='common.twitterId' />}
-                name='twitterId'
+                label={<IntlMessages id='product.period' />}
+                name='contact'
+              />
+              <MyTextField
+                required={true}
+                className={classes.myTextField}
+                variant='outlined'
+                label={<IntlMessages id='product.category' />}
+                name='contact'
+              />
+              <MyTextField
+                required={true}
+                className={classes.myTextField}
+                variant='outlined'
+                label={<IntlMessages id='product.delivery' />}
+                name='contact'
               />
             </Box>
           </Box>

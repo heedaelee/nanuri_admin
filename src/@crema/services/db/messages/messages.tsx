@@ -8,27 +8,16 @@ export interface MessageData {
 const messageData: MessageData[] = [
   {
     id: 201,
-    image: '/assets/images/avatar/A19.jpg',
-    message: 'Hey man! Whatsapp?',
-    name: 'Angelina Joew',
+    image: '/assets/images/avatar/A1.jpg',
+    message: '깃헙 푸쉬 완료했습니다!',
+    name: '최민경',
   },
   {
     id: 202,
-    image: '/assets/images/avatar/A15.jpg',
-    message: 'I am fine, what about you?',
-    name: 'John Matthew',
+    image: '/assets/images/avatar/A2.jpg',
+    message: '메일 회신 부탁드립니다~!',
+    name: '김서현',
   },
-  {
-    id: 203,
-    image: '/assets/images/avatar/A21.jpg',
-    message: 'Call me when you are free!',
-    name: 'George Bailey',
-  },
-  {
-    id: 204,
-    image: '/assets/images/avatar/A25.jpg',
-    message: 'Send your contact details!',
-    name: 'Maria Lee',
-  },
+  
 ];
 export default messageData;

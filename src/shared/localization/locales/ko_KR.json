@@ -128,6 +128,17 @@
   "ecommerce.addToCart": "Add to cart",
   "contactApp.contact": "회원 관리",
   "product": "게시물 관리",
+  "product.name": "상품 이름",
+  "product.link": "링크",
+  "product.price": "상품 가격",
+  "product.ppl": "모집 인원",
+  "product.period": "모집 기간",
+
+  "product.category": "카테고리",
+  "product.delivery": "배송방법",
+  
+  "product.productDetails": "게시물 정보",
+  "product.createProduct": "게시물 생성",
   "product.deleteContact": "선택된 게시물을 정말 삭제하시겠습니까?",
   "contactApp.createContact": "회원 추가하기",
   "contactApp.personalDetails": "회원 정보",
