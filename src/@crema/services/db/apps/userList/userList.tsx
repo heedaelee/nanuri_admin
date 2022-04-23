@@ -7,6 +7,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A1.jpg',
+    label: 312,
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A2.jpg',
+    label: 313,
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: true,
     image: '/assets/images/avatar/A3.jpg',
+    label: 314,
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A4.jpg',
+    label: 315,
   },
   {
     id: 5,
@@ -39,6 +43,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A5.jpg',
+    label: 316,
   },
   {
     id: 6,
@@ -47,6 +52,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: true,
     image: '/assets/images/avatar/A6.jpg',
+    label: 317,
   },
   {
     id: 7,
@@ -55,6 +61,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A7.jpg',
+    label: 318,
   },
   {
     id: 8,
@@ -63,6 +70,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A8.jpg',
+    label: 319,
   },
   {
     id: 9,
@@ -71,6 +79,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A9.jpg',
+    label: 320,
   },
   {
     id: 10,
@@ -79,6 +88,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A10.jpg',
+    label: 321,
   },
   {
     id: 11,
@@ -87,6 +97,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: true,
     image: '/assets/images/avatar/A11.jpg',
+    label: 322,
   },
   {
     id: 12,
@@ -95,6 +106,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A12.jpg',
+    label: 323,
   },
   {
     id: 13,
@@ -103,6 +115,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A13.jpg',
+    label: 324,
   },
   {
     id: 14,
@@ -111,6 +124,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A14.jpg',
+    label: 325,
   },
   {
     id: 15,
@@ -119,46 +133,7 @@ const userList: UserListObj[] = [
     contact: '010-000-000',
     isStarred: false,
     image: '/assets/images/avatar/A15.jpg',
-  },
-  {
-    id: 16,
-    name: '지상계',
-    email: 'nick.taylor@usa.com',
-    contact: '010-000-000',
-    isStarred: true,
-    image: '/assets/images/avatar/A16.jpg',
-  },
-  {
-    id: 17,
-    name: '데이비드',
-    email: 'nikita.suman@nicks.com',
-    contact: '010-000-000',
-    isStarred: false,
-    image: '/assets/images/avatar/A17.jpg',
-  },
-  {
-    id: 18,
-    name: '박찬호',
-    email: 'laura.lohan@laura.com',
-    contact: '010-000-000',
-    isStarred: false,
-    image: '/assets/images/avatar/A18.jpg',
-  },
-  {
-    id: 19,
-    name: '김연아',
-    email: 'jennifer.john@abc.com',
-    contact: '010-000-000',
-    isStarred: false,
-    image: '/assets/images/avatar/A19.jpg',
-  },
-  {
-    id: 20,
-    name: '로버트',
-    email: 'robert.key@key.com',
-    contact: '010-000-000',
-    isStarred: false,
-    image: '/assets/images/avatar/A20.jpg',
+    label: 326,
   },
 ];
 export default userList;

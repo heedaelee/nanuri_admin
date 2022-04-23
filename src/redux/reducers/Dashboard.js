@@ -7,17 +7,10 @@ import {
   // GET_HC_DATA,
   // GET_METRICS_DATA,
   // GET_WIDGETS_DATA,
-} from '../../../src/types/actions/Dashboard.action';
+} from '../../types/actions/Dashboard.action';
 
 const initialState = {
-  // analyticsData: null,
-  // ecommerceData: null,
   crmData: null,
-  // cryptoData: null,
-  // metricsData: null,
-  // widgetsData: null,
-  // healthCare: null,
-  // academyData: null,
 };
 
 const dashboardReducer = (state = initialState, action) => {
@@ -45,30 +38,6 @@ const dashboardReducer = (state = initialState, action) => {
         ...state,
         crmData: action.payload,
       };
-
-    // case GET_CRYPTO_DATA:
-    //   return {
-    //     ...state,
-    //     cryptoData: action.payload,
-    //   };
-
-    // case GET_METRICS_DATA:
-    //   return {
-    //     ...state,
-    //     metricsData: action.payload,
-    //   };
-
-    // case GET_WIDGETS_DATA:
-    //   return {
-    //     ...state,
-    //     widgetsData: action.payload,
-    //   };
-
-    // case GET_HC_DATA:
-    //   return {
-    //     ...state,
-    //     healthCare: action.payload,
-    //   };
 
     default:
       return state;

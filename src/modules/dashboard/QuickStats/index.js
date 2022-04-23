@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid/index';
+import Grid from '@material-ui/core/Grid';
 import StatsCard from './StatsCard';
 import PersonIcon from '@material-ui/icons/Person';
 import DescriptionIcon from '@material-ui/icons/Description';

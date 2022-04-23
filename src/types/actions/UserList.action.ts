@@ -1,4 +1,4 @@
-import {UserListObj, FolderObj} from './../models/apps/UserList';
+import {UserListObj, FolderObj} from '../models/apps/UserList';
 
 // action strings
 export const CREATE_NEW_CONTACT = 'CREATE_NEW_CONTACT';
@@ -7,6 +7,7 @@ export const GET_CONTACT_FOLDER_LIST = 'GET_CONTACT_FOLDER_LIST';
 export const GET_CONTACT_LIST = 'GET_CONTACT_LIST';
 export const UPDATE_CONTACT_STARRED_STATUS = 'UPDATE_CONTACT_STARRED_STATUS';
 export const UPDATE_CONTACT_DETAIL = 'UPDATE_CONTACT_DETAIL';
+export const UPDATE_CONTACT_LABEL = 'UPDATE_CONTACT_LABEL';
 export const TOGGLE_CONTACT_DRAWER = 'TOGGLE_CONTACT_DRAWER';
 
 export interface CreateContactActions {
@@ -38,6 +39,11 @@ export interface UpdateContactActions {
   payload: UserListObj;
 }
 
+export interface UpdateContactLabelActions {
+  type: typeof UPDATE_CONTACT_LABEL;
+  payload: {data: UserListObj[]; labelName: string; labelType: number};
+}
+
 export interface UpdateContactStarActions {
   type: typeof UPDATE_CONTACT_STARRED_STATUS;
   payload: {data: UserListObj[]; folderName: string};
@@ -50,4 +56,5 @@ export type UserListActionTypes =
   | GetContactsActions
   | ToggleContactDrawerActions
   | UpdateContactActions
-  | UpdateContactStarActions;
+  | UpdateContactStarActions
+  | UpdateContactLabelActions;

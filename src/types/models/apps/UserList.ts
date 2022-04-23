@@ -4,6 +4,7 @@ export interface UserListObj {
   email: string;
   contact: string;
   isStarred: boolean;
+  label: number;
   image: string;
   address?: string;
   appleId?: string;
@@ -16,4 +17,11 @@ export interface FolderObj {
   name: string;
   alias: string;
   icon: string;
+}
+
+export interface LabelObj {
+  id: number;
+  name: string;
+  alias: string;
+  color: string;
 }

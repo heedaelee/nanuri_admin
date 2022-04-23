@@ -58,6 +58,8 @@ const ContactListItem: React.FC<ContactListItemProps> = ({
     },
   }));
 
+  console.log(contact)
+
   const classes = useStyles();
 
   return (

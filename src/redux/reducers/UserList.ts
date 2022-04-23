@@ -1,3 +1,4 @@
+import {LabelObj} from './../../types/models/apps/UserList';
 import {
   UserListActionTypes,
   CREATE_NEW_CONTACT,
@@ -7,6 +8,7 @@ import {
   TOGGLE_CONTACT_DRAWER,
   UPDATE_CONTACT_DETAIL,
   UPDATE_CONTACT_STARRED_STATUS,
+  UPDATE_CONTACT_LABEL,
 } from '../../types/actions/UserList.action';
 
 import {UserListObj, FolderObj} from '../../types/models/apps/UserList';
@@ -15,12 +17,14 @@ const initialState: {
   contactList: UserListObj[];
   totalContacts: number;
   contactDrawer: false;
+  labelList: LabelObj[];
   folderList: FolderObj[];
   selectedContact: UserListObj | null;
 } = {
   contactList: [],
   totalContacts: 0,
   contactDrawer: false,
+  labelList: [],
   folderList: [],
   selectedContact: null,
 };
@@ -58,6 +62,31 @@ const contactReducer = (state = initialState, action: UserListActionTypes) => {
         ...state,
         contactList: action.payload.list,
         totalContacts: action.payload.total,
+      };
+    }
+
+    case UPDATE_CONTACT_LABEL: {
+      let contactIds = action.payload.data.map((contact) => contact.id);
+      const updatedList = state.contactList.map((contact) => {
+        if (contactIds.includes(contact.id)) {
+          return action.payload.data.find(
+            (selectedContact) => selectedContact.id === contact.id,
+          );
+        } else {
+          return contact;
+        }
+      });
+      const filteredList =
+        action.payload.labelName === 'label'
+          ? updatedList.filter(
+              (item) => item!.label !== action.payload.labelType,
+            )
+          : updatedList;
+      const total = filteredList.length;
+      return {
+        ...state,
+        contactList: filteredList,
+        totalContacts: total,
       };
     }
 

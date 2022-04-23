@@ -16,7 +16,7 @@ import {
   UPDATE_CONTACT_DETAIL,
   UPDATE_CONTACT_STARRED_STATUS
 } from '../../types/actions/UserList.action';
-import { AppActions } from './../../types/index';
+import { AppActions } from '../../types/index';
 
 export const onGetContactList = (
   type: string,

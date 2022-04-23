@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {SketchPicker} from 'react-color';
-import {makeStyles} from '@material-ui/core/index';
+import {makeStyles} from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import AppContext from '../../utility/AppContext';
 import {CremaTheme} from '../../../types/AppContextPropsType';

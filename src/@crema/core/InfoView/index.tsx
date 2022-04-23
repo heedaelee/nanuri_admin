@@ -1,5 +1,5 @@
 import React from 'react';
-import {Loader, MessageView} from '../../../@crema';
+import {Loader, MessageView} from '../..';
 import {useSelector} from 'react-redux';
 import {AppState} from '../../../redux/store';
 

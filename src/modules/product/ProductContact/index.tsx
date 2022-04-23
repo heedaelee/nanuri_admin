@@ -1,6 +1,6 @@
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
-import { makeStyles } from '@material-ui/core/styles/index';
+import { makeStyles } from '@material-ui/core/styles';
 import { TransitionProps } from '@material-ui/core/transitions';
 import { Formik } from 'formik';
 import React from 'react';

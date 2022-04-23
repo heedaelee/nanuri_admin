@@ -54,6 +54,7 @@ const ListView: React.FC<ListViewProps> = ({
   ItemSeparatorComponent,
   ...rest
 }) => {
+  console.log('data', data);
   const theme = useTheme();
   const borderStyle = {
     border: `1px solid ${grey[300]}`,

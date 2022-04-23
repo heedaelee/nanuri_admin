@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, ListItem, ListItemText} from '@material-ui/core';
-import {Badge, NavLink} from '../../../../@crema';
+import {Badge, NavLink} from '../../..';
 import clsx from 'clsx';
 import IntlMessages from '../../../utility/IntlMessages';
 import useStyles from './HorizontalItem.style';

@@ -167,4 +167,4 @@ const AppAnimateGroup = ({
   );
 };
 
-export default memo(AppAnimateGroup);
+export default AppAnimateGroup;

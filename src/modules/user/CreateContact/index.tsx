@@ -11,7 +11,7 @@ import {
 import Slide from '@material-ui/core/Slide';
 import AddContactForm from './AddContactForm';
 import {Fonts} from '../../../shared/constants/AppEnums';
-import {makeStyles} from '@material-ui/core/styles/index';
+import {makeStyles} from '@material-ui/core/styles';
 import {UserListObj} from '../../../types/models/apps/UserList';
 import {TransitionProps} from '@material-ui/core/transitions';
 import {useIntl} from 'react-intl';
@@ -120,7 +120,6 @@ const CreateContact: React.FC<CreateContactProps> = ({
               const newContact = {
                 id: Math.floor(Math.random() * 1000),
                 isStarred: false,
-                isFrequent: Math.random() > 0.5,
                 image: userImage,
                 ...data,
               };

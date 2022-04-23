@@ -114,6 +114,7 @@ const ContactListing = () => {
   };
 
   const onGetFilteredItems = () => {
+    console.log('filter : ', filterText);
     if (filterText === '') {
       return contactList;
     } else {
@@ -143,7 +144,8 @@ const ContactListing = () => {
   };
 
   const list = onGetFilteredItems();
-
+  // console.log('list');
+  // console.log(list);
   return (
     <>
       <AppsHeader>

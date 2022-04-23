@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core';
 import TableHeading from './TableHeading';
 import TableItem from './TableItem';
-import {grey} from '@material-ui/core/colors/index';
+import {grey} from '@material-ui/core/colors';
 import {isBreakPointDown} from '../../../../@crema/utility/Utils';
 import AppTableContainer from '../../../../@crema/core/AppTableContainer';
 

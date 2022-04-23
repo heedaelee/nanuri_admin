@@ -9,6 +9,8 @@ import IntlMessages from '../../../../@crema/utility/IntlMessages';
 import {UserListObj} from '../../../../types/models/apps/UserList';
 import ContactGridItem from './ContactGridItem';
 import ContactListItem from './ContactListItem';
+import {useSelector} from 'react-redux';
+import {AppState} from 'redux/store';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -45,10 +47,14 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
   onOpenEditContact,
   onViewContactDetail,
 }) => {
+  const {labelList} = useSelector<AppState, AppState['userList']>(
+    ({userList}) => userList,
+  );
+
   const classes = useStyles();
-  // console.log('======================ContactViewContent.tsx');
-  // console.log(list);
-  // console.log('====================================');
+  console.log('======================ContactViewContent.tsx');
+  console.log(list);
+  console.log('====================================');
   return (
     <>
       {/* list 아니면 grid지 뭐.. */}
@@ -65,11 +71,11 @@ const ContactViewContent: React.FC<ContactViewContentProps> = ({
               placeholder={<ContactListSkeleton />}
             />
           }
-
           renderRow={(contact) => (
             <ContactListItem
               key={contact.id}
               contact={contact}
+              labelList={labelList}
               onChangeCheckedContacts={onChangeCheckedContacts}
               checkedContacts={checkedContacts}
               onSelectContactsForDelete={onSelectContactsForDelete}

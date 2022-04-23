@@ -1,5 +1,5 @@
-import {DashboardActionTypes} from './../../types/actions/Dashboard.action';
-import {AppActions} from './../../types/index';
+import {DashboardActionTypes} from '../../types/actions/Dashboard.action';
+import {AppActions} from '../../types/index';
 import {FETCH_START, FETCH_SUCCESS} from 'types/actions/Common.action';
 import {GET_CRM_DATA} from 'types/actions/Dashboard.action';
 

@@ -1,4 +1,4 @@
-import {FETCH_SUCCESS} from './../../types/actions/Common.action';
+import {FETCH_SUCCESS} from '../../types/actions/Common.action';
 import jwtAxios from '../../@crema/services/auth/jwt-auth/jwt-api';
 import {fetchError, fetchStart, fetchSuccess} from './Common';
 import {AuthType} from '../../shared/constants/AppEnums';
